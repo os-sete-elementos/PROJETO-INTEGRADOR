@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro - Portal da Comunidade Escolar</title>
+
+    <!-- CSS CORRETO -->
+  <link rel="stylesheet" href="css/style.cadastro.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="index.html" class="logo">
+        PORTAL DA<br>
+        <span>COMUNIDADE ESCOLAR!</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+        <a href="recursos.html">Recursos</a>
+    </nav>
+
+    <div class="header-buttons">
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html" class="btn-cadastro active-btn">
+            Cadastrar
+        </a>
+    </div>
+
+</header>
+
+<main class="container">
+
+    <p class="subtitulo">FAÇA PARTE DA NOSSA COMUNIDADE!</p>
+
+    <h1>Crie sua conta</h1>
+
+    <p class="descricao">
+        Cadastre-se para ter acesso ao Portal da Comunidade Escolar.
+    </p>
+
+    <div class="card">
+
+        <h2>Criar cadastro</h2>
+
+        <p class="texto-card">
+            Preencha as informações abaixo.
+        </p>
+
+        <form action="#" method="POST">
+
+            <label for="nome">Nome completo</label>
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Digite seu nome completo"
+                required
+            >
+
+            <label for="email">E-mail</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Digite seu e-mail"
+                required
+            >
+
+            <label for="senha">Senha</label>
+            <input
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Crie uma senha"
+                minlength="6"
+                required
+            >
+
+            <label for="confirmar">Confirmar senha</label>
+            <input
+                type="password"
+                id="confirmar"
+                name="confirmar"
+                placeholder="Digite sua senha novamente"
+                minlength="6"
+                required
+            >
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
+        <p class="rodape-card">
+            Já possui uma conta?
+            <a href="login.html">Faça login</a>
+        </p>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>
+        © 2026 — Portal da Comunidade Escolar.
+        Todos os direitos reservados.
+    </p>
+
+    <p>
+        Desenvolvido pelo grupo <strong>6 Elementos.</strong>
+    </p>
+</footer>
+
+</body>
+</html>

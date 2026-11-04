@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Portal da Comunidade Escolar</title>
+    <link rel="stylesheet" href="css/style.cadastro.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">
+            PORTAL DA<br>
+            <span>COMUNIDADE ESCOLAR!</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="contato.html">Contato</a>
+            <a href="recursos.html">Recursos</a>
+        </nav>
+
+        <div class="header-buttons">
+            <a href="login.html" class="active">Entrar</a>
+            <a href="cadastro.html" class="btn-cadastro">Cadastrar</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="titulo">
+            <p class="subtitulo">BEM-VINDO DE VOLTA!</p>
+            <h1>Entre na sua conta</h1>
+            <p class="descricao">
+                Acesse sua conta e aproveite os recursos do nosso portal.
+            </p>
+        </section>
+
+        <section class="card">
+
+            <div class="icone"></div>
+
+            <h2>Fazer login</h2>
+            <p class="texto-card">Informe seus dados para continuar.</p>
+
+            <form action="#" method="POST">
+
+                <label for="email">E-mail</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
+
+                <label for="senha">Senha</label>
+                <input
+                    type="password"
+                    id="senha"
+                    name="senha"
+                    placeholder="Digite sua senha"
+                    required
+                >
+
+                <div class="opcoes">
+                    <label class="lembrar">
+                        <input type="checkbox" name="lembrar">
+                        Lembrar de mim
+                    </label>
+
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit">Entrar na minha conta</button>
+
+            </form>
+
+            <p class="rodape-card">
+                Ainda não tem uma conta?
+                <a href="cadastro.html">Cadastre-se</a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 — Portal da Comunidade Escolar. Todos os direitos reservados.</p>
+        <p>Desenvolvido pelo grupo <strong>6 Elementos.</strong></p>
+    </footer>
+
+</body>
+</html>
