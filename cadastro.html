@@ -1,14 +1,14 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Cadastro - Portal da Comunidade Escolar</title>
 
-    <!-- CSS CORRETO -->
-  <link rel="stylesheet" href="css/style.cadastro.css">
+    <link rel="stylesheet" href="css/style.cadastro.css">
 </head>
 
 <body>
@@ -29,6 +29,7 @@
 
     <div class="header-buttons">
         <a href="login.html">Entrar</a>
+
         <a href="cadastro.html" class="btn-cadastro active-btn">
             Cadastrar
         </a>
@@ -54,9 +55,45 @@
             Preencha as informações abaixo.
         </p>
 
-        <form action="#" method="POST">
+        <form id="formCadastro">
 
+            <!-- FOTO DE PERFIL -->
+            <div class="foto-cadastro">
+
+                <div class="preview-container">
+
+                    <span id="iconeFoto">👤</span>
+
+                    <img
+                        id="previewFoto"
+                        src=""
+                        alt="Prévia da foto de perfil"
+                        hidden
+                    >
+
+                </div>
+
+                <label for="fotoCadastro" class="botao-foto">
+                    Escolher foto de perfil
+                </label>
+
+                <input
+                    type="file"
+                    id="fotoCadastro"
+                    name="fotoCadastro"
+                    accept="image/*"
+                    hidden
+                >
+
+                <p class="dica-foto">
+                    Foto opcional. Tamanho máximo: 1 MB.
+                </p>
+
+            </div>
+
+            <!-- NOME -->
             <label for="nome">Nome completo</label>
+
             <input
                 type="text"
                 id="nome"
@@ -65,7 +102,9 @@
                 required
             >
 
+            <!-- E-MAIL -->
             <label for="email">E-mail</label>
+
             <input
                 type="email"
                 id="email"
@@ -74,7 +113,9 @@
                 required
             >
 
+            <!-- SENHA -->
             <label for="senha">Senha</label>
+
             <input
                 type="password"
                 id="senha"
@@ -84,7 +125,9 @@
                 required
             >
 
+            <!-- CONFIRMAR SENHA -->
             <label for="confirmar">Confirmar senha</label>
+
             <input
                 type="password"
                 id="confirmar"
@@ -94,7 +137,9 @@
                 required
             >
 
-            <button type="submit">Cadastrar</button>
+            <button type="submit">
+                Cadastrar
+            </button>
 
         </form>
 
@@ -108,6 +153,7 @@
 </main>
 
 <footer>
+
     <p>
         © 2026 — Portal da Comunidade Escolar.
         Todos os direitos reservados.
@@ -116,7 +162,10 @@
     <p>
         Desenvolvido pelo grupo <strong>6 Elementos.</strong>
     </p>
+
 </footer>
+
+<script src="js/cadastro.js"></script>
 
 </body>
 </html>

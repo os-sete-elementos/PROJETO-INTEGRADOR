@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+    <link rel="stylesheet" href="css/cabecalho.css">
     <header class="cabecalho">
 
         <a class="logo" href="index.html">
@@ -20,16 +20,41 @@
 
         <nav class="menu">
             <a class="ativo" href="index.html">Home</a>
-            <a href="sobre.html">Sobre</a>
-            <a href="contato.html">Contato</a>
-            <a href="recursos.html">Recursos</a>
+            <a href="login.html">Sobre</a>
+            <a href="login.html">Suporte</a>
+            <a href="login.html">Recursos</a>
         </nav>
 
         <div class="acoes">
-            <a href="login.html">Entrar</a>
-            <a class="botao pequeno" href="cadastro.html">
+
+            <a href="login.html" id="linkEntrar">
+                Entrar
+            </a>
+
+            <a class="botao pequeno"
+               href="cadastro.html"
+               id="linkCadastrar">
                 Cadastrar
             </a>
+
+            <!-- Foto de perfil -->
+            <a href="foto.html"
+               class="perfil-link"
+               id="linkPerfil"
+               title="Meu perfil"
+               style="display: none;">
+
+                <img
+                    id="fotoCabecalho"
+                    src=""
+                    alt="Foto de perfil"
+                    style="display: none;"
+                >
+
+                <span id="iconePerfil">👤</span>
+
+            </a>
+
         </div>
 
     </header>
@@ -57,11 +82,11 @@
 
                 <div class="botoes">
 
-                    <a class="botao" href="recursos.html">
+                    <a class="botao" href="login.html">
                         Encontrar colegas
                     </a>
 
-                    <a class="botao secundario" href="recursos.html">
+                    <a class="botao secundario" href="login.html">
                         Organizar trabalho
                     </a>
 
@@ -127,6 +152,8 @@
         <br>
         Desenvolvido pelo grupo <strong>6 Elementos</strong>.
     </footer>
+
+    <script src="js/cabecalho.js"></script>
 
 </body>
 </html>

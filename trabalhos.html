@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trabalhos | Portal da Comunidade Escolar</title>
+    <script src="trabalhos.js"></script>
+    <link rel="stylesheet" href="css/trabalhos.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            PORTAL DA
+            <span>COMUNIDADE ESCOLAR!</span>
+        </div>
+
+        <p class="menu-titulo">MENU</p>
+
+        <a href="index.html" class="menu-item">⌂ Início</a>
+        <a href="colegas.html" class="menu-item">♧ Amigos</a>
+        <a href="trabalhos.html" class="menu-item selecionado">▣ Trabalhos</a>
+        <a href="recursos.html" class="menu-item">▤ Recursos</a>
+
+        <div class="perfil">
+            <div class="avatar-pequeno" id="avatarUsuario">?</div>
+
+            <div>
+                <strong id="nomeUsuario">Visitante</strong>
+                <span id="statusUsuario">Não conectado</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+
+        <header class="topo">
+
+            <div>
+                <h1>Meus trabalhos</h1>
+                <p>Organize suas atividades e projetos escolares!</p>
+            </div>
+
+            <a href="index.html" class="voltar">
+                Voltar ao início
+            </a>
+
+        </header>
+
+        <!-- RESUMO -->
+        <section class="resumo">
+
+            <div class="resumo-card">
+                <div class="resumo-icone">📚</div>
+                <div>
+                    <span>Total de trabalhos</span>
+                    <h2 id="totalTrabalhos">0</h2>
+                </div>
+            </div>
+
+            <div class="resumo-card">
+                <div class="resumo-icone">⏳</div>
+                <div>
+                    <span>Em andamento</span>
+                    <h2 id="emAndamento">0</h2>
+                </div>
+            </div>
+
+            <div class="resumo-card">
+                <div class="resumo-icone">✓</div>
+                <div>
+                    <span>Concluídos</span>
+                    <h2 id="concluidos">0</h2>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- NOVO TRABALHO -->
+        <section class="criar-trabalho">
+
+            <div class="titulo-secao">
+                <div>
+                    <h2>Criar novo trabalho</h2>
+                    <p>Adicione uma atividade para organizar seus estudos.</p>
+                </div>
+            </div>
+
+            <form id="formTrabalho">
+
+                <div class="form-grid">
+
+                    <div class="campo">
+                        <label for="titulo">Nome do trabalho</label>
+                        <input
+                            type="text"
+                            id="titulo"
+                            placeholder="Ex: Pesquisa sobre o meio ambiente"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo">
+                        <label for="materia">Matéria</label>
+                        <select id="materia" required>
+                            <option value="">Selecione uma matéria</option>
+                            <option>Matemática</option>
+                            <option>Português</option>
+                            <option>História</option>
+                            <option>Geografia</option>
+                            <option>Ciências</option>
+                            <option>Inglês</option>
+                            <option>Artes</option>
+                            <option>Informática</option>
+                            <option>Outra</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="dataEntrega">Data de entrega</label>
+                        <input type="date" id="dataEntrega" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="grupo">Nome do grupo (opcional)</label>
+                        <input
+                            type="text"
+                            id="grupo"
+                            placeholder="Ex: Grupo 1"
+                        >
+                    </div>
+
+                    <div class="campo campo-completo">
+                        <label for="descricao">Descrição do trabalho</label>
+                        <textarea
+                            id="descricao"
+                            rows="4"
+                            placeholder="Escreva os detalhes da atividade..."
+                        ></textarea>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn-criar">
+                    + Criar trabalho
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- LISTA DE TRABALHOS -->
+        <section class="lista-secao">
+
+            <div class="titulo-lista">
+                <div>
+                    <h2>Seus trabalhos</h2>
+                    <p>Acompanhe suas atividades escolares.</p>
+                </div>
+            </div>
+
+            <div class="filtros">
+
+                <button class="filtro ativo" data-filtro="todos">
+                    Todos
+                </button>
+
+                <button class="filtro" data-filtro="andamento">
+                    Em andamento
+                </button>
+
+                <button class="filtro" data-filtro="concluido">
+                    Concluídos
+                </button>
+
+            </div>
+
+            <div id="listaTrabalhos" class="trabalhos-grid">
+
+                <p class="mensagem-vazia">
+                    Você ainda não adicionou nenhum trabalho.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- RODAPÉ -->
+        <footer>
+            © 2026 — Portal da Comunidade Escolar.
+            Todos os direitos reservados.
+            <br>
+            Desenvolvido pelo grupo <strong>6 Elementos.</strong>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="trabalhos.js"></script>
+
+</body>
+</html>

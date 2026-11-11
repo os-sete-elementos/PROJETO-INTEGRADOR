@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Perfil - Portal da Comunidade Escolar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
+    <link rel="stylesheet" href="css/foto.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+
+        <a class="logo" href="index2.html">
+            PORTAL DA<br>
+            <span>COMUNIDADE ESCOLAR!</span>
+        </a>
+
+        <nav class="menu">
+            <a href="index2.html">Home</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="suporte.html">Suporte</a>
+            <a href="recursos.html">Recursos</a>
+        </nav>
+
+        <div class="acoes">
+            <a href="foto.html" class="perfil-link" title="Meu perfil">
+                <img id="fotoCabecalho" src="" alt="Foto de perfil" style="display: none; width: 45px; height: 45px; object-fit: cover; border-radius: 50%;">
+                <span id="iconeCabecalho">👤</span>
+            </a>
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="perfil-principal">
+
+        <section class="perfil-container">
+
+            <a href="index2.html" class="voltar">
+                ← Voltar ao início
+            </a>
+
+            <div class="perfil-titulo">
+                <p class="etiqueta">SUA CONTA • SEU ESPAÇO</p>
+
+                <h1>Meu <span>Perfil</span></h1>
+
+                <p class="subtitulo">
+                    Veja e atualize suas informações pessoais.
+                </p>
+            </div>
+
+            <div class="foto-container">
+                <img id="fotoPerfil" src="" alt="Foto de perfil"
+                     style="display: none; width: 130px; height: 130px; object-fit: cover; border-radius: 50%;">
+                <span id="iconePerfil">👤</span>
+            </div>
+
+            <label for="arquivoFoto" class="botao-foto">
+                Alterar foto
+            </label>
+
+            <input
+                type="file"
+                id="arquivoFoto"
+                accept="image/*"
+                hidden
+            >
+
+            <div class="informacoes">
+
+                <label>Nome</label>
+                <p id="nomePerfil">Carregando...</p>
+
+                <label>E-mail</label>
+                <p id="emailPerfil">Carregando...</p>
+
+            </div>
+
+            <!-- ALTERAR NOME -->
+            <div class="campo-editar">
+
+                <label for="novoNome">Alterar meu nome</label>
+
+                <input
+                    type="text"
+                    id="novoNome"
+                    placeholder="Digite seu novo nome"
+                    maxlength="60"
+                >
+
+                <button type="button" id="btnSalvarNome" class="botao-salvar">
+                    Salvar novo nome
+                </button>
+
+                <p id="mensagemPerfil"></p>
+
+            </div>
+
+            <button id="btnSair" class="botao-sair">
+                Sair da conta
+            </button>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        © 2026 — Portal da Comunidade Escolar.
+        Todos os direitos reservados.
+        <br>
+        Desenvolvido pelo grupo <strong>6 Elementos</strong>.
+    </footer>
+
+    <script src="js/foto.js"></script>
+
+</body>
+</html>

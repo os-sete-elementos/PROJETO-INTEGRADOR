@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Amizades - Portal da Comunidade Escolar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
+    <link rel="stylesheet" href="css/amizades.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+
+        <a class="logo" href="index2.html">
+            PORTAL DA<br>
+            <span>COMUNIDADE ESCOLAR!</span>
+        </a>
+
+        <nav class="menu">
+            <a href="index2.html">Home</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="suporte.html">Suporte</a>
+            <a href="recursos.html">Recursos</a>
+            <a href="amizades.html">Amizades</a>
+        </nav>
+
+        <div class="acoes">
+            <a href="foto.html" class="perfil-link" title="Meu perfil">
+                <img
+                    id="fotoCabecalho"
+                    src=""
+                    alt="Foto de perfil"
+                    style="display: none;"
+                >
+                <span id="iconeCabecalho">👤</span>
+            </a>
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="amizades-principal">
+
+        <section class="amizades-container">
+
+            <div class="amizades-titulo">
+                <p class="etiqueta">CONECTE-SE COM SEUS COLEGAS</p>
+
+                <h1>Minhas <span>Amizades</span></h1>
+
+                <p class="subtitulo">
+                    Encontre colegas, faça novas amizades e aproxime-se
+                    da comunidade escolar.
+                </p>
+            </div>
+
+            <!-- PESQUISAR COLEGAS -->
+            <section class="pesquisa-colegas">
+
+                <h2>Encontrar colegas</h2>
+
+                <p>
+                    Pesquise pelo nome de outros estudantes.
+                </p>
+
+                <div class="campo-pesquisa">
+
+                    <input
+                        type="search"
+                        id="pesquisaColega"
+                        placeholder="Digite o nome do colega..."
+                    >
+
+                    <button type="button" id="btnPesquisar">
+                        Pesquisar
+                    </button>
+
+                </div>
+
+                <div id="resultadosPesquisa">
+                    <p>Digite um nome para encontrar colegas.</p>
+                </div>
+
+            </section>
+
+            <!-- SOLICITAÇÕES DE AMIZADE -->
+            <section class="solicitacoes">
+
+                <h2>Solicitações de amizade</h2>
+
+                <div id="listaSolicitacoes">
+                    <p>Você ainda não possui solicitações.</p>
+                </div>
+
+            </section>
+
+            <!-- MINHAS AMIZADES -->
+            <section class="minhas-amizades">
+
+                <h2>Meus colegas</h2>
+
+                <div id="listaAmizades">
+                    <p>Você ainda não possui amizades adicionadas.</p>
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        © 2026 — Portal da Comunidade Escolar.
+        Todos os direitos reservados.
+        <br>
+        Desenvolvido pelo grupo <strong>6 Elementos</strong>.
+    </footer>
+
+    <script src="js/cabecalho.js"></script>
+    <script src="js/amizades.js"></script>
+
+</body>
+</html>

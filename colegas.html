@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigos | Portal da Comunidade Escolar</title>
+    <link rel="stylesheet" href="css/colegas.css">
+</head>
+<body>
+<script src="colegas.js"></script>
+<div class="app">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            PORTAL DA
+            <span>COMUNIDADE ESCOLAR!</span>
+        </div>
+
+        <p class="menu-titulo">MENU</p>
+
+        <a href="index2.html" class="menu-item">⌂ Início</a>
+        <a href="colegas.html" class="menu-item selecionado">♧ Amigos</a>
+        <a href="trabalhos.html" class="menu-item">▣ Trabalhos</a>
+        <a href="recursos.html" class="menu-item">▤ Recursos</a>
+
+        <div class="perfil">
+            <div class="avatar-pequeno" id="avatarUsuario">?</div>
+            <div>
+                <strong id="nomeUsuario">Visitante</strong>
+                <span id="statusUsuario">Não conectado</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="conteudo">
+
+        <header class="topo">
+            <div>
+                <h1>Amigos</h1>
+                <p>Conecte-se com seus colegas de escola!</p>
+            </div>
+
+            <a href="index2.html" class="voltar">Voltar ao início</a>
+        </header>
+
+        <!-- ABAS -->
+        <nav class="abas">
+            <button class="aba ativa" data-aba="todos">
+                Meus amigos
+            </button>
+
+            <button class="aba" data-aba="adicionar">
+                Adicionar amigo
+            </button>
+
+            <button class="aba" data-aba="solicitacoes">
+                Solicitações
+                <span id="contadorPedidos">0</span>
+            </button>
+        </nav>
+
+        <!-- ABA AMIGOS -->
+        <section class="painel" id="todos">
+
+            <h2>Seus amigos</h2>
+            <p class="descricao-painel">
+                Aqui aparecem os estudantes que você adicionou.
+            </p>
+
+            <div class="busca-amigos">
+                <input
+                    type="text"
+                    id="filtroAmigos"
+                    placeholder="Pesquisar entre seus amigos..."
+                >
+            </div>
+
+            <div id="listaAmigos" class="lista-amigos"></div>
+
+        </section>
+
+        <!-- ABA ADICIONAR -->
+        <section class="painel escondido" id="adicionar">
+
+            <div class="caixa-adicionar">
+
+                <div class="icone-adicionar">♧</div>
+
+                <h2>ADICIONE SEUS AMIGOS!</h2>
+
+                <p>
+                    Você pode adicionar colegas usando o nome
+                    de usuário cadastrado no portal.
+                </p>
+
+                <div class="campo-adicionar">
+                    <input
+                        type="text"
+                        id="campoUsuario"
+                        placeholder="Exemplo: maria123"
+                    >
+
+                    <button id="btnPesquisar">
+                        Pesquisar
+                    </button>
+                </div>
+
+                <div id="resultadoPesquisa"></div>
+
+            </div>
+
+        </section>
+
+        <!-- ABA SOLICITAÇÕES -->
+        <section class="painel escondido" id="solicitacoes">
+
+            <h2>Solicitações de amizade</h2>
+
+            <p class="descricao-painel">
+                Veja quem deseja se conectar com você.
+            </p>
+
+            <div id="listaSolicitacoes"></div>
+
+        </section>
+
+        <footer>
+            © 2026 — Portal da Comunidade Escolar.
+            Todos os direitos reservados.
+            <br>
+            Desenvolvido pelo grupo <strong>6 Elementos.</strong>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="colegas.js"></script>
+
+</body>
+</html>

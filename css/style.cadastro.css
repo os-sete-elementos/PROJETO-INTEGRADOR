@@ -164,6 +164,68 @@ a {
     margin-bottom: 25px;
 }
 
+/* FOTO DE PERFIL NO CADASTRO */
+
+.foto-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.preview-container {
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+
+    background: #edf4ff;
+    border: 4px solid #2878e8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+.preview-container span {
+    font-size: 48px;
+}
+
+.preview-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.botao-foto {
+    display: inline-block;
+    background: #edf4ff;
+    color: #2878e8;
+
+    padding: 11px 20px;
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-foto:hover {
+    background: #dceaff;
+}
+
+.dica-foto {
+    color: #8290a4;
+    font-size: 12px;
+    margin-top: 9px;
+    text-align: center;
+}
+
 /* FORMULÁRIO */
 
 .card form {
@@ -181,7 +243,7 @@ a {
     margin-top: 8px;
 }
 
-.card form input:not([type="checkbox"]) {
+.card form input:not([type="checkbox"]):not([type="file"]) {
     display: block;
     width: 100%;
     height: 46px;
@@ -228,6 +290,7 @@ a {
 
     cursor: pointer;
     transition: 0.3s;
+
     box-shadow: 0 6px 15px rgba(40, 120, 232, 0.18);
 }
 
@@ -273,6 +336,7 @@ footer strong {
 /* RESPONSIVIDADE */
 
 @media (max-width: 800px) {
+
     .header {
         flex-wrap: wrap;
         padding: 18px 5%;
@@ -285,9 +349,11 @@ footer strong {
         flex-wrap: wrap;
         gap: 18px;
     }
+
 }
 
 @media (max-width: 500px) {
+
     .container {
         padding: 35px 16px 45px;
     }
@@ -303,4 +369,5 @@ footer strong {
     .header-buttons {
         gap: 12px;
     }
+
 }

@@ -1,0 +1,452 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f8ff;
+    color: #192d4f;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* MENU LATERAL */
+
+.sidebar {
+    width: 245px;
+    background: white;
+    border-right: 1px solid #e5edfa;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 19px;
+    margin-bottom: 55px;
+}
+
+.logo span {
+    display: block;
+    color: #2878ed;
+}
+
+.menu-titulo {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #8998af;
+    margin-bottom: 15px;
+}
+
+.menu-item {
+    padding: 14px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #192d4f;
+    font-size: 14px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.menu-item:hover,
+.menu-item.selecionado {
+    background: #eaf2ff;
+    color: #2878ed;
+}
+
+.perfil {
+    margin-top: auto;
+    background: #f5f8ff;
+    border-radius: 10px;
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-pequeno {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #2878ed;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+}
+
+.perfil strong {
+    display: block;
+    font-size: 12px;
+}
+
+.perfil span {
+    display: block;
+    color: #8998af;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+/* CONTEÚDO */
+
+.conteudo {
+    flex: 1;
+    padding: 35px 55px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.topo h1 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.topo p {
+    color: #61728d;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.voltar {
+    text-decoration: none;
+    color: #2878ed;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* ABAS */
+
+.abas {
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid #dce6f5;
+    margin-top: 40px;
+}
+
+.aba {
+    background: none;
+    border: none;
+    padding: 15px 5px;
+    color: #61728d;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.aba.ativa {
+    color: #2878ed;
+    border-bottom: 3px solid #2878ed;
+}
+
+.aba span {
+    background: #2878ed;
+    color: white;
+    padding: 3px 7px;
+    border-radius: 20px;
+    margin-left: 5px;
+    font-size: 11px;
+}
+
+/* PAINÉIS */
+
+.painel {
+    padding-top: 35px;
+    flex: 1;
+}
+
+.escondido {
+    display: none !important;
+}
+
+.painel h2 {
+    font-size: 21px;
+}
+
+.descricao-painel {
+    color: #61728d;
+    font-size: 13px;
+    margin-top: 9px;
+}
+
+/* PESQUISA */
+
+.busca-amigos {
+    margin-top: 25px;
+}
+
+.busca-amigos input,
+.campo-adicionar input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #d5e2f7;
+    border-radius: 8px;
+    outline: none;
+    background: white;
+    font-size: 14px;
+}
+
+.busca-amigos input:focus,
+.campo-adicionar input:focus {
+    border-color: #2878ed;
+}
+
+/* ADICIONAR AMIGOS */
+
+.caixa-adicionar {
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 45px 35px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(25,45,79,.05);
+    text-align: center;
+}
+
+.icone-adicionar {
+    margin: auto auto 20px;
+    width: 65px;
+    height: 65px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    background: #eaf2ff;
+    color: #2878ed;
+    font-size: 35px;
+}
+
+.caixa-adicionar h2 {
+    font-size: 22px;
+}
+
+.caixa-adicionar p {
+    color: #61728d;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 15px auto 25px;
+    max-width: 430px;
+}
+
+.campo-adicionar {
+    display: flex;
+    gap: 10px;
+}
+
+.campo-adicionar button,
+.btn-acao {
+    border: none;
+    background: #2878ed;
+    color: white;
+    border-radius: 8px;
+    padding: 0 23px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+button:hover {
+    filter: brightness(.94);
+}
+
+/* RESULTADOS E AMIGOS */
+
+.lista-amigos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.usuario-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 17px;
+    background: white;
+    border: 1px solid #e5edfa;
+    border-radius: 10px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    background: #eaf2ff;
+    color: #2878ed;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 19px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.usuario-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.usuario-info strong {
+    display: block;
+    font-size: 14px;
+}
+
+.usuario-info span {
+    color: #8998af;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
+.status {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #24b47e;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.status.offline {
+    background: #a6afbd;
+}
+
+.btn-acao {
+    padding: 10px 13px;
+    font-size: 12px;
+}
+
+.btn-remover {
+    background: #edf4ff;
+    color: #2878ed;
+}
+
+.resultado {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.mensagem {
+    text-align: center;
+    color: #8998af;
+    padding: 35px 10px;
+    font-size: 14px;
+}
+
+.solicitacao-card {
+    margin-top: 15px;
+}
+
+/* RODAPÉ */
+
+footer {
+    margin: 60px -55px -35px;
+    background: #edf4ff;
+    padding: 22px;
+    text-align: center;
+    color: #61728d;
+    font-size: 12px;
+    line-height: 2;
+}
+
+footer strong {
+    color: #192d4f;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 850px) {
+    .sidebar {
+        width: 190px;
+    }
+
+    .conteudo {
+        padding: 30px 25px;
+    }
+
+    .lista-amigos {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        margin-left: -25px;
+        margin-right: -25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 18px;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .menu-titulo,
+    .perfil {
+        display: none;
+    }
+
+    .menu-item {
+        display: inline-block;
+        margin: 0 3px;
+        padding: 10px;
+    }
+
+    .conteudo {
+        padding: 25px 18px;
+    }
+
+    .topo {
+        align-items: flex-start;
+    }
+
+    .abas {
+        gap: 12px;
+        overflow-x: auto;
+    }
+
+    .aba {
+        white-space: nowrap;
+        font-size: 12px;
+    }
+
+    .campo-adicionar {
+        flex-direction: column;
+    }
+
+    .campo-adicionar button {
+        padding: 14px;
+    }
+
+    .caixa-adicionar {
+        padding: 30px 18px;
+    }
+
+    footer {
+        margin-left: -18px;
+        margin-right: -18px;
+    }
+}
