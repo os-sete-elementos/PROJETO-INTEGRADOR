@@ -1,14 +1,18 @@
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Amigos | Portal da Comunidade Escolar</title>
+
     <link rel="stylesheet" href="css/colegas.css">
 </head>
+
 <body>
-<script src="colegas.js"></script>
+
 <div class="app">
 
     <!-- MENU LATERAL -->
@@ -21,119 +25,152 @@
 
         <p class="menu-titulo">MENU</p>
 
-        <a href="index2.html" class="menu-item">⌂ Início</a>
-        <a href="colegas.html" class="menu-item selecionado">♧ Amigos</a>
-        <a href="trabalhos.html" class="menu-item">▣ Trabalhos</a>
-        <a href="recursos.html" class="menu-item">▤ Recursos</a>
+        <nav class="menu">
 
+            <a href="index2.html" class="menu-item">
+                <span>⌂</span> Início
+            </a>
+
+            <a href="colegas.html" class="menu-item selecionado">
+                <span>♧</span> Amigos
+            </a>
+
+            <a href="trabalhos.html" class="menu-item">
+                <span>▣</span> Trabalhos
+            </a>
+
+            <a href="recursos.html" class="menu-item">
+                <span>▤</span> Recursos
+            </a>
+
+        </nav>
+
+        <!-- PERFIL -->
         <div class="perfil">
+
             <div class="avatar-pequeno" id="avatarUsuario">?</div>
-            <div>
+
+            <div class="dados-perfil">
                 <strong id="nomeUsuario">Visitante</strong>
                 <span id="statusUsuario">Não conectado</span>
             </div>
+
         </div>
 
     </aside>
 
-    <!-- CONTEÚDO -->
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="conteudo">
 
+        <!-- CABEÇALHO -->
         <header class="topo">
+
             <div>
-                <h1>Amigos</h1>
-                <p>Conecte-se com seus colegas de escola!</p>
+                <span class="identificacao">PORTAL DA COMUNIDADE ESCOLAR</span>
+                <h1>Meus amigos</h1>
+                <p>Conecte-se com seus colegas e fortaleça sua comunidade escolar.</p>
             </div>
 
-            <a href="index2.html" class="voltar">Voltar ao início</a>
+            <a href="index2.html" class="voltar">
+                ← Voltar ao início
+            </a>
+
         </header>
+
+        <!-- BANNER -->
+        <section class="banner">
+
+            <div class="banner-texto">
+                <span>SUA COMUNIDADE</span>
+                <h2>Conexões que aproximam!</h2>
+                <p>
+                    Encontre seus colegas, acompanhe solicitações
+                    e mantenha contato com sua comunidade escolar.
+                </p>
+            </div>
+
+            <div class="banner-icone">♧</div>
+
+        </section>
 
         <!-- ABAS -->
         <nav class="abas">
+
             <button class="aba ativa" data-aba="todos">
-                Meus amigos
+                ♧ Meus amigos
             </button>
 
-            <button class="aba" data-aba="adicionar">
-                Adicionar amigo
-            </button>
+            <a href="amizades.html" class="aba">
+                ＋ Adicionar amigo
+            </a>
 
-            <button class="aba" data-aba="solicitacoes">
-                Solicitações
-                <span id="contadorPedidos">0</span>
-            </button>
+            <a href="solicitacoes.html" class="aba">
+                ＋ Solicitações
+            </a>
+
+
+
         </nav>
 
-        <!-- ABA AMIGOS -->
+        <!-- PAINEL DE AMIGOS -->
         <section class="painel" id="todos">
 
-            <h2>Seus amigos</h2>
-            <p class="descricao-painel">
-                Aqui aparecem os estudantes que você adicionou.
-            </p>
+            <div class="titulo-painel">
+                <div>
+                    <span class="identificacao">CONEXÕES</span>
+                    <h2>Seus amigos</h2>
+                    <p class="descricao-painel">
+                        Aqui aparecem os estudantes que você adicionou.
+                    </p>
+                </div>
+
+                <div class="icone-painel">♧</div>
+            </div>
 
             <div class="busca-amigos">
+
+                <span>⌕</span>
+
                 <input
                     type="text"
                     id="filtroAmigos"
                     placeholder="Pesquisar entre seus amigos..."
                 >
+
             </div>
 
             <div id="listaAmigos" class="lista-amigos"></div>
 
         </section>
 
-        <!-- ABA ADICIONAR -->
-        <section class="painel escondido" id="adicionar">
-
-            <div class="caixa-adicionar">
-
-                <div class="icone-adicionar">♧</div>
-
-                <h2>ADICIONE SEUS AMIGOS!</h2>
-
-                <p>
-                    Você pode adicionar colegas usando o nome
-                    de usuário cadastrado no portal.
-                </p>
-
-                <div class="campo-adicionar">
-                    <input
-                        type="text"
-                        id="campoUsuario"
-                        placeholder="Exemplo: maria123"
-                    >
-
-                    <button id="btnPesquisar">
-                        Pesquisar
-                    </button>
-                </div>
-
-                <div id="resultadoPesquisa"></div>
-
-            </div>
-
-        </section>
-
-        <!-- ABA SOLICITAÇÕES -->
+        <!-- PAINEL DE SOLICITAÇÕES -->
         <section class="painel escondido" id="solicitacoes">
 
-            <h2>Solicitações de amizade</h2>
+            <div class="titulo-painel">
+                <div>
+                    <span class="identificacao">NOVAS CONEXÕES</span>
+                    <h2>Solicitações de amizade</h2>
+                    <p class="descricao-painel">
+                        Veja quem deseja se conectar com você.
+                    </p>
+                </div>
 
-            <p class="descricao-painel">
-                Veja quem deseja se conectar com você.
-            </p>
+                <div class="icone-painel">✉</div>
+            </div>
 
             <div id="listaSolicitacoes"></div>
 
         </section>
 
+        <!-- RODAPÉ -->
         <footer>
-            © 2026 — Portal da Comunidade Escolar.
-            Todos os direitos reservados.
-            <br>
-            Desenvolvido pelo grupo <strong>6 Elementos.</strong>
+
+            <p>© 2026 — Portal da Comunidade Escolar. Todos os direitos reservados.</p>
+
+            <p>
+                Desenvolvido pelo grupo <strong>6 Elementos.</strong>
+            </p>
+
         </footer>
 
     </main>

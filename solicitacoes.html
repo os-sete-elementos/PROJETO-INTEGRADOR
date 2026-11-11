@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solicitações | Portal da Comunidade Escolar</title>
+
+    <link rel="stylesheet" href="css/solicitacoes.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            PORTAL DA
+            <span>COMUNIDADE ESCOLAR!</span>
+        </div>
+
+        <p class="menu-titulo">MENU</p>
+
+        <nav class="menu">
+
+            <a href="index2.html" class="menu-item">
+                <span>⌂</span> Início
+            </a>
+
+            <a href="colegas.html" class="menu-item selecionado">
+                <span>♧</span> Amigos
+            </a>
+
+            <a href="trabalhos.html" class="menu-item">
+                <span>▣</span> Trabalhos
+            </a>
+
+            <a href="recursos.html" class="menu-item">
+                <span>▤</span> Recursos
+            </a>
+
+        </nav>
+
+        <!-- PERFIL DO USUÁRIO -->
+        <div class="perfil">
+
+            <div class="avatar-pequeno" id="avatarUsuario">?</div>
+
+            <div class="dados-perfil">
+                <strong id="nomeUsuario">Visitante</strong>
+                <span id="statusUsuario">Não conectado</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+
+        <!-- CABEÇALHO -->
+        <header class="topo">
+
+            <div>
+                <span class="identificacao">PORTAL DA COMUNIDADE ESCOLAR</span>
+
+                <h1>Solicitações de amizade</h1>
+
+                <p>
+                    Acompanhe os pedidos de amizade recebidos
+                    pela sua comunidade escolar.
+                </p>
+            </div>
+
+            <a href="colegas.html" class="voltar">
+                ← Voltar aos amigos
+            </a>
+
+        </header>
+
+        <!-- BANNER -->
+        <section class="banner">
+
+            <div class="banner-texto">
+
+                <span>NOVAS CONEXÕES</span>
+
+                <h2>Você tem novos colegas para conhecer!</h2>
+
+                <p>
+                    Confira quem deseja se conectar com você
+                    e amplie sua rede de amizades escolares.
+                </p>
+
+            </div>
+
+            <div class="banner-icone">✉</div>
+
+        </section>
+
+        <!-- ABAS -->
+        <nav class="abas">
+
+            <a href="colegas.html" class="aba">
+                ♧ Meus amigos
+            </a>
+
+            <a href="amizades.html" class="aba">
+                ＋ Adicionar amigo
+            </a>
+
+            <a href="solicitacoes.html" class="aba ativa">
+                ✉ Solicitações
+            </a>
+
+        </nav>
+
+        <!-- PAINEL DE SOLICITAÇÕES -->
+        <section class="painel-solicitacoes">
+
+            <div class="titulo-painel">
+
+                <div>
+                    <span class="identificacao">GERENCIAR AMIZADES</span>
+
+                    <h2>Pedidos recebidos</h2>
+
+                    <p>
+                        Confira os pedidos de amizade enviados para você.
+                    </p>
+                </div>
+
+                <span class="contador" id="contadorSolicitacoes">0</span>
+
+            </div>
+
+            <div class="linha-divisoria"></div>
+
+            <div id="listaSolicitacoes">
+
+                <div class="mensagem">
+                    Carregando solicitações...
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- DICA -->
+        <div class="dica">
+
+            <div class="dica-icone">i</div>
+
+            <p>
+                <strong>Dica:</strong>
+                Aceite os pedidos para adicionar novos colegas
+                à sua lista de amigos.
+            </p>
+
+        </div>
+
+        <!-- RODAPÉ -->
+        <footer>
+
+            <p>
+                © 2026 — Portal da Comunidade Escolar.
+                Todos os direitos reservados.
+            </p>
+
+            <p>
+                Desenvolvido pelo grupo <strong>6 Elementos.</strong>
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="JS/solicitacoes.js"></script>
+
+</body>
+</html>

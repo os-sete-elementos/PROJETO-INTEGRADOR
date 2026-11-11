@@ -1,0 +1,641 @@
+
+/* ==========================================
+   PORTAL DA COMUNIDADE ESCOLAR
+   PÁGINA: SOLICITAÇÕES DE AMIZADE
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f8ff;
+    color: #19375e;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   ESTRUTURA PRINCIPAL
+========================================== */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   MENU LATERAL
+========================================== */
+
+.sidebar {
+    width: 255px;
+    min-height: 100vh;
+    background: #ffffff;
+    border-right: 1px solid #dce6f5;
+    padding: 28px 19px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.logo {
+    color: #19375e;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 5px 8px;
+    margin-bottom: 42px;
+}
+
+.logo span {
+    display: block;
+    color: #2675f5;
+    font-size: 15px;
+}
+
+.menu-titulo {
+    color: #9aa9bb;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin: 0 12px 15px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 8px;
+    color: #526b8d;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.25s;
+}
+
+.menu-item span {
+    width: 20px;
+    text-align: center;
+    font-size: 19px;
+}
+
+.menu-item:hover {
+    background: #f0f5ff;
+    color: #2675f5;
+}
+
+.menu-item.selecionado {
+    background: #e8f1ff;
+    color: #2675f5;
+    font-weight: bold;
+}
+
+/* ==========================================
+   PERFIL DO USUÁRIO
+========================================== */
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    padding: 18px 5px 0;
+    border-top: 1px solid #edf1f7;
+}
+
+.avatar-pequeno {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: #e8f1ff;
+    color: #2675f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.dados-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.dados-perfil strong {
+    color: #19375e;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.dados-perfil span {
+    color: #8293aa;
+    font-size: 11px;
+}
+
+/* ==========================================
+   CONTEÚDO PRINCIPAL
+========================================== */
+
+.conteudo {
+    flex: 1;
+    min-width: 0;
+    padding: 35px 42px;
+}
+
+/* ==========================================
+   CABEÇALHO
+========================================== */
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.identificacao {
+    display: block;
+    color: #2675f5;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+    margin-bottom: 9px;
+}
+
+.topo h1 {
+    font-size: 27px;
+    color: #19375e;
+    margin-bottom: 8px;
+}
+
+.topo p {
+    color: #71839d;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.voltar {
+    text-decoration: none;
+    color: #2675f5;
+    background: #ffffff;
+    border: 1px solid #dce6f5;
+    padding: 12px 17px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: 0.25s;
+}
+
+.voltar:hover {
+    background: #e8f1ff;
+    border-color: #2675f5;
+}
+
+/* ==========================================
+   BANNER
+========================================== */
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(110deg, #2675f5, #438cf8);
+    color: #ffffff;
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+    overflow: hidden;
+}
+
+.banner-texto {
+    max-width: 650px;
+}
+
+.banner-texto > span {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    opacity: 0.85;
+}
+
+.banner h2 {
+    font-size: 23px;
+    margin: 9px 0;
+}
+
+.banner p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #eaf2ff;
+}
+
+.banner-icone {
+    font-size: 75px;
+    opacity: 0.25;
+    padding-right: 20px;
+}
+
+/* ==========================================
+   ABAS
+========================================== */
+
+.abas {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #dce6f5;
+    margin-bottom: 23px;
+    overflow-x: auto;
+}
+
+.aba {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 14px 18px;
+    border-bottom: 3px solid transparent;
+    color: #71839d;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.25s;
+}
+
+.aba:hover {
+    color: #2675f5;
+}
+
+.aba.ativa {
+    color: #2675f5;
+    border-bottom-color: #2675f5;
+}
+
+/* ==========================================
+   PAINEL DE SOLICITAÇÕES
+========================================== */
+
+.painel-solicitacoes {
+    background: #ffffff;
+    border: 1px solid #e1e9f5;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 3px 12px rgba(25, 55, 94, 0.035);
+}
+
+.titulo-painel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.titulo-painel h2 {
+    color: #19375e;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.titulo-painel p {
+    color: #8291a7;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* CONTADOR */
+
+.contador {
+    width: 43px;
+    height: 43px;
+    min-width: 43px;
+    border-radius: 10px;
+    background: #e8f1ff;
+    color: #2675f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* DIVISÓRIA */
+
+.linha-divisoria {
+    height: 1px;
+    background: #edf1f7;
+    margin: 24px 0;
+}
+
+/* ==========================================
+   LISTA DE SOLICITAÇÕES
+========================================== */
+
+#listaSolicitacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.solicitacao-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px;
+    border: 1px solid #e5ebf4;
+    border-radius: 9px;
+    background: #ffffff;
+    transition: 0.25s;
+}
+
+.solicitacao-card:hover {
+    border-color: #b9d2fa;
+    background: #fbfdff;
+}
+
+.solicitacao-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+}
+
+.solicitacao-avatar {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border-radius: 50%;
+    background: #e8f1ff;
+    color: #2675f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.solicitacao-dados h3 {
+    color: #19375e;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.solicitacao-dados p {
+    color: #8293aa;
+    font-size: 12px;
+}
+
+/* BOTÕES */
+
+.acoes-solicitacao {
+    display: flex;
+    gap: 9px;
+}
+
+.botao-acao {
+    border: none;
+    border-radius: 7px;
+    padding: 11px 16px;
+    background: #2675f5;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.botao-acao:hover {
+    background: #155ed1;
+}
+
+.botao-recusar {
+    background: #ffffff;
+    border: 1px solid #dce6f5;
+    color: #526b8d;
+}
+
+.botao-recusar:hover {
+    background: #f4f8ff;
+    color: #19375e;
+}
+
+/* ==========================================
+   MENSAGEM VAZIA
+========================================== */
+
+.mensagem {
+    text-align: center;
+    padding: 40px 15px;
+    color: #8293aa;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.mensagem-icone {
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    background: #e8f1ff;
+    color: #2675f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    margin: 0 auto 15px;
+}
+
+.mensagem h3 {
+    color: #19375e;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+/* ==========================================
+   DICA
+========================================== */
+
+.dica {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: #e8f1ff;
+    border: 1px solid #d6e6ff;
+    border-radius: 9px;
+    padding: 17px 20px;
+    margin-top: 22px;
+}
+
+.dica-icone {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    background: #2675f5;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.dica p {
+    color: #526b8d;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.dica strong {
+    color: #19375e;
+}
+
+/* ==========================================
+   RODAPÉ
+========================================== */
+
+footer {
+    text-align: center;
+    padding: 25px 10px;
+    margin-top: 28px;
+    border-top: 1px solid #e1e9f5;
+    color: #91a0b4;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+footer strong {
+    color: #526b8d;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .conteudo {
+        padding: 28px 22px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .menu-titulo {
+        display: none;
+    }
+
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .menu-item {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .perfil {
+        margin-top: 18px;
+    }
+
+    .conteudo {
+        padding: 23px 15px;
+    }
+
+    .topo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .banner {
+        padding: 23px;
+    }
+
+    .banner h2 {
+        font-size: 19px;
+    }
+
+    .banner-icone {
+        font-size: 48px;
+        padding-right: 0;
+    }
+
+    .abas {
+        gap: 0;
+    }
+
+    .aba {
+        padding: 12px 10px;
+        font-size: 11px;
+    }
+
+    .painel-solicitacoes {
+        padding: 20px 15px;
+    }
+
+    .solicitacao-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .acoes-solicitacao {
+        width: 100%;
+    }
+
+    .acoes-solicitacao button {
+        flex: 1;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .topo h1 {
+        font-size: 23px;
+    }
+
+    .menu-item {
+        font-size: 11px;
+        gap: 6px;
+        padding: 9px;
+    }
+
+    .dica {
+        align-items: flex-start;
+    }
+
+}
