@@ -1,0 +1,709 @@
+
+/* =====================================
+   PORTAL DA COMUNIDADE ESCOLAR
+   RECURSOS - ESTILO DA PÁGINA
+===================================== */
+
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* CONFIGURAÇÕES GERAIS */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8ff;
+    color: #19375e;
+    min-height: 100vh;
+}
+
+
+/* ESTRUTURA PRINCIPAL */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =====================================
+   MENU LATERAL
+===================================== */
+
+.sidebar {
+    width: 225px;
+    min-width: 225px;
+    background: #ffffff;
+    border-right: 1px solid #e1eafa;
+    padding: 25px 18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #19375e;
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+.logo span {
+    display: block;
+    color: #2878e8;
+}
+
+
+/* TÍTULO DO MENU */
+
+.menu-titulo {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #9aa8b9;
+    margin-bottom: 17px;
+}
+
+
+/* LINKS DO MENU */
+
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.menu-item {
+    display: block;
+    padding: 14px 12px;
+    color: #19375e;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: #f0f5ff;
+    color: #2878e8;
+}
+
+.menu-item.selecionado {
+    background: #eaf2ff;
+    color: #2878e8;
+}
+
+
+/* =====================================
+   USUÁRIO
+===================================== */
+
+.usuario {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #f4f8ff;
+    border-radius: 9px;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    background: #2878e8;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.foto-usuario {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.usuario strong {
+    display: block;
+    font-size: 11px;
+}
+
+.usuario span {
+    display: block;
+    color: #8795a8;
+    font-size: 10px;
+    margin-top: 4px;
+}
+
+
+/* =====================================
+   CONTEÚDO
+===================================== */
+
+.conteudo {
+    flex: 1;
+    min-width: 0;
+    padding: 35px 45px;
+}
+
+
+/* CABEÇALHO */
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.topo h1 {
+    font-size: 29px;
+    color: #19375e;
+    margin-bottom: 7px;
+}
+
+.topo p {
+    color: #718096;
+    font-size: 13px;
+}
+
+.voltar {
+    color: #2878e8;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.voltar:hover {
+    color: #174b91;
+}
+
+
+/* =====================================
+   PAINÉIS
+===================================== */
+
+.painel {
+    background: #ffffff;
+    border: 1px solid #e1eaf5;
+    border-radius: 9px;
+    padding: 22px;
+}
+
+
+/* =====================================
+   RESUMO
+===================================== */
+
+.resumo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+    margin-bottom: 35px;
+}
+
+.resumo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.icone {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+}
+
+.azul {
+    background: #eaf3ff;
+}
+
+.roxo {
+    background: #f1ebff;
+}
+
+.verde {
+    background: #e8f8ef;
+}
+
+.resumo p {
+    font-size: 11px;
+    color: #8795a8;
+    margin-bottom: 6px;
+}
+
+.resumo strong {
+    font-size: 13px;
+}
+
+
+/* =====================================
+   SEÇÕES
+===================================== */
+
+.secao {
+    margin-bottom: 32px;
+}
+
+.titulo-secao {
+    margin-bottom: 17px;
+}
+
+.titulo-secao h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.titulo-secao p {
+    font-size: 11px;
+    color: #8795a8;
+}
+
+
+/* =====================================
+   ATALHOS
+===================================== */
+
+.atalhos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.atalho {
+    display: block;
+    text-decoration: none;
+    color: #19375e;
+    transition: 0.2s;
+}
+
+.atalho:hover {
+    border-color: #2878e8;
+    transform: translateY(-3px);
+}
+
+.atalho > span {
+    display: block;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.atalho h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.atalho p {
+    color: #8795a8;
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 13px;
+}
+
+.atalho strong {
+    color: #2878e8;
+    font-size: 11px;
+}
+
+
+/* =====================================
+   CONTEÚDO PRINCIPAL
+===================================== */
+
+.conteudo-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.coluna-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* =====================================
+   PROGRESSO
+===================================== */
+
+.progresso-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 10px;
+    font-size: 11px;
+    color: #8795a8;
+}
+
+.progresso-info strong {
+    color: #2878e8;
+}
+
+.barra-progresso {
+    height: 8px;
+    width: 100%;
+    background: #eaf3ff;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#barraPreenchida {
+    height: 100%;
+    width: 0;
+    background: #2878e8;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+
+/* =====================================
+   TAREFAS
+===================================== */
+
+.lista-tarefas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tarefa {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+    background: #f7faff;
+    border: 1px solid #e1eaf5;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tarefa:hover {
+    border-color: #b9d4f8;
+}
+
+.tarefa input {
+    accent-color: #2878e8;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.tarefa strong {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.tarefa small {
+    font-size: 10px;
+    color: #8795a8;
+}
+
+.tarefa.concluida strong,
+.tarefa.concluida small {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+
+/* =====================================
+   BOTÕES
+===================================== */
+
+.botao-secundario {
+    margin-top: 17px;
+    padding: 10px 14px;
+    background: #eaf3ff;
+    color: #2878e8;
+    border: 0;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-secundario:hover {
+    background: #2878e8;
+    color: #ffffff;
+}
+
+.botao-principal {
+    display: block;
+    margin-top: 15px;
+    padding: 12px;
+    background: #2878e8;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.botao-principal:hover {
+    background: #174b91;
+}
+
+
+/* =====================================
+   AVISOS
+===================================== */
+
+#avisosAgendamentos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.aviso {
+    padding: 13px;
+    background: #f4f8ff;
+    border: 1px solid #e1eaf5;
+    border-radius: 7px;
+}
+
+.aviso strong {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.aviso p {
+    font-size: 10px;
+    color: #8795a8;
+}
+
+
+/* =====================================
+   EVENTOS
+===================================== */
+
+#listaEventos {
+    display: flex;
+    flex-direction: column;
+}
+
+.evento {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #edf1f7;
+}
+
+.evento:last-child {
+    border-bottom: none;
+}
+
+.evento-data {
+    width: 43px;
+    height: 46px;
+    min-width: 43px;
+    background: #eaf3ff;
+    color: #2878e8;
+    border-radius: 7px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.evento-data strong {
+    font-size: 9px;
+}
+
+.evento-data span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.evento > div:last-child strong {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.evento > div:last-child p {
+    font-size: 10px;
+    color: #8795a8;
+}
+
+
+/* =====================================
+   MENSAGENS VAZIAS
+===================================== */
+
+.vazio {
+    padding: 17px;
+    background: #f7faff;
+    border-radius: 7px;
+    color: #8795a8;
+    font-size: 11px;
+    text-align: center;
+}
+
+
+/* =====================================
+   MENSAGEM FINAL
+===================================== */
+
+.mensagem-final {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #eaf3ff;
+    border-radius: 9px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 27px;
+}
+
+.mensagem-final h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.mensagem-final p {
+    color: #718096;
+    font-size: 11px;
+}
+
+
+/* =====================================
+   RODAPÉ
+===================================== */
+
+footer {
+    margin-left: 225px;
+    background: #edf4ff;
+    padding: 20px;
+    text-align: center;
+    color: #718096;
+    font-size: 10px;
+    line-height: 2;
+}
+
+footer strong {
+    color: #19375e;
+}
+
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+@media (max-width: 1000px) {
+
+    .conteudo {
+        padding: 25px;
+    }
+
+    .conteudo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .atalhos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 100%;
+        padding: 15px;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .menu-titulo {
+        margin-bottom: 10px;
+    }
+
+    .menu-lateral {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .menu-item {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .usuario {
+        margin-top: 15px;
+    }
+
+    .conteudo {
+        padding: 20px 15px;
+    }
+
+    .topo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .topo h1 {
+        font-size: 24px;
+    }
+
+    .resumo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .atalhos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        margin-left: 0;
+    }
+
+}

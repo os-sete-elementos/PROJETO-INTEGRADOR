@@ -133,7 +133,9 @@ body {
 }
 
 /* ABAS */
-
+.escondido {
+    display: none !important;
+}
 .abas {
     display: flex;
     gap: 30px;

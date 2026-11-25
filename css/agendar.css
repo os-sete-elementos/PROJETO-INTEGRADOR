@@ -1,0 +1,681 @@
+
+/* =====================================
+   PORTAL DA COMUNIDADE ESCOLAR
+   PÁGINA DE AGENDAMENTOS
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8ff;
+    color: #19375e;
+    min-height: 100vh;
+}
+
+
+/* ESTRUTURA PRINCIPAL */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* MENU LATERAL */
+
+.sidebar {
+    width: 227px;
+    min-width: 227px;
+    background: #ffffff;
+    border-right: 1px solid #e1eafa;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #19375e;
+    margin-bottom: 50px;
+}
+
+.logo span {
+    display: block;
+    color: #2878e8;
+    margin-top: 3px;
+}
+
+
+/* MENU */
+
+.menu-titulo {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #91a0b3;
+    margin-bottom: 15px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.menu-item {
+    display: block;
+    padding: 14px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #19375e;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: #f0f5ff;
+    color: #2878e8;
+}
+
+.menu-item.selecionado {
+    background: #eaf2ff;
+    color: #2878e8;
+}
+
+
+/* PERFIL */
+
+.perfil {
+    margin-top: auto;
+    background: #f4f8ff;
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #2878e8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.perfil strong {
+    display: block;
+    font-size: 12px;
+}
+
+.perfil small {
+    display: block;
+    color: #8795a8;
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+
+/* CONTEÚDO */
+
+.conteudo {
+    flex: 1;
+    min-width: 0;
+    padding: 28px 50px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* CABEÇALHO */
+
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.topo h1 {
+    font-size: 30px;
+    color: #19375e;
+    margin-bottom: 8px;
+}
+
+.topo p {
+    color: #718096;
+    font-size: 14px;
+}
+
+.voltar {
+    color: #2878e8;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.voltar:hover {
+    text-decoration: underline;
+}
+
+
+/* ÁREA DO CALENDÁRIO */
+
+.area-calendario {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
+    gap: 22px;
+    align-items: start;
+}
+
+
+/* CALENDÁRIO */
+
+.calendario,
+.painel,
+.lista-agendamentos {
+    background: #ffffff;
+    border: 1px solid #e1eafa;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.calendario-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.calendario-topo h2,
+.painel h2,
+.lista-topo h2 {
+    font-size: 19px;
+    color: #19375e;
+    margin-bottom: 7px;
+}
+
+.calendario-topo p,
+.descricao,
+.lista-topo p {
+    font-size: 13px;
+    color: #718096;
+}
+
+
+/* NAVEGAÇÃO DO MÊS */
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.navegacao h3 {
+    font-size: 15px;
+    min-width: 125px;
+    text-align: center;
+    color: #19375e;
+}
+
+.navegacao button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e1eafa;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #2878e8;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.navegacao button:hover {
+    background: #eaf2ff;
+}
+
+
+/* DIAS DA SEMANA */
+
+.dias-semana,
+.dias {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    text-align: center;
+}
+
+.dias-semana {
+    border-bottom: 1px solid #e8eef7;
+    padding-bottom: 12px;
+    margin-bottom: 10px;
+}
+
+.dias-semana span {
+    font-size: 12px;
+    color: #8795a8;
+    font-weight: bold;
+}
+
+
+/* QUADRADOS DOS DIAS */
+
+.dias {
+    row-gap: 7px;
+}
+
+.dia {
+    position: relative;
+    height: 45px;
+    width: 45px;
+    justify-self: center;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    color: #19375e;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dia:hover:not(.vazio-dia) {
+    background: #eaf2ff;
+    color: #2878e8;
+}
+
+.vazio-dia {
+    cursor: default;
+}
+
+
+/* DIA ATUAL */
+
+.dia.hoje {
+    border: 1px solid #2878e8;
+    color: #2878e8;
+    font-weight: bold;
+}
+
+
+/* DIA SELECIONADO */
+
+.dia.selecionado {
+    background: #2878e8;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.dia.selecionado:hover {
+    background: #174b91;
+    color: white;
+}
+
+
+/* DIA COM EVENTO */
+
+.dia.tem-evento:not(.selecionado)::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #2878e8;
+    border-radius: 50%;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dia.tem-evento.selecionado::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* LEGENDA */
+
+.legenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 25px;
+    padding-top: 17px;
+    border-top: 1px solid #e8eef7;
+}
+
+.legenda span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #718096;
+}
+
+.bolinha {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.bolinha.hoje {
+    border: 2px solid #2878e8;
+}
+
+.bolinha.evento {
+    background: #2878e8;
+}
+
+.bolinha.selecionado-legenda {
+    background: #2878e8;
+}
+
+
+/* PAINEL DE AGENDAMENTO */
+
+.painel {
+    padding: 24px;
+}
+
+.descricao {
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+.painel form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.painel label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #19375e;
+}
+
+.painel input,
+.painel textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dce5f1;
+    border-radius: 7px;
+    outline: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #19375e;
+    background: #ffffff;
+}
+
+.painel input:focus,
+.painel textarea:focus {
+    border-color: #2878e8;
+    box-shadow: 0 0 0 3px rgba(40, 120, 232, 0.10);
+}
+
+.painel textarea {
+    resize: vertical;
+}
+
+.botao-agendar {
+    margin-top: 12px;
+    padding: 13px;
+    border: none;
+    border-radius: 7px;
+    background: #2878e8;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botao-agendar:hover {
+    background: #174b91;
+}
+
+
+/* LISTA DE COMPROMISSOS */
+
+.lista-agendamentos {
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.lista-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#quantidadeEventos {
+    background: #eaf2ff;
+    color: #2878e8;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* EVENTOS */
+
+.eventos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.evento {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px;
+    border: 1px solid #e1eafa;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.evento-info h3 {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.evento-info p {
+    font-size: 12px;
+    color: #718096;
+    line-height: 1.5;
+}
+
+.evento-info .evento-descricao {
+    margin-top: 7px;
+}
+
+.excluir {
+    border: 1px solid #f0dada;
+    color: #d9534f;
+    background: #ffffff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.excluir:hover {
+    background: #fff0f0;
+}
+
+
+/* ESTADO VAZIO */
+
+.vazio {
+    text-align: center;
+    padding: 30px 10px;
+    color: #8795a8;
+}
+
+.vazio span {
+    font-size: 30px;
+}
+
+.vazio h3 {
+    font-size: 15px;
+    color: #19375e;
+    margin: 12px 0 7px;
+}
+
+.vazio p {
+    font-size: 12px;
+}
+
+
+/* RODAPÉ */
+
+footer {
+    margin-top: auto;
+    margin-left: -50px;
+    margin-right: -50px;
+    padding: 23px 15px;
+    background: #edf4ff;
+    text-align: center;
+    color: #718096;
+    font-size: 11px;
+    line-height: 2;
+}
+
+footer strong {
+    color: #19375e;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 1000px) {
+
+    .conteudo {
+        padding: 25px;
+    }
+
+    .area-calendario {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        margin-left: -25px;
+        margin-right: -25px;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 100%;
+        padding: 15px;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .menu-item {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .menu-titulo {
+        margin-bottom: 8px;
+    }
+
+    .perfil {
+        margin-top: 15px;
+    }
+
+    .conteudo {
+        padding: 20px 15px 0;
+    }
+
+    .topo {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .topo h1 {
+        font-size: 25px;
+    }
+
+    .voltar {
+        font-size: 11px;
+    }
+
+    .calendario,
+    .painel,
+    .lista-agendamentos {
+        padding: 15px;
+    }
+
+    .calendario-topo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navegacao {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dia {
+        width: 36px;
+        height: 40px;
+    }
+
+    .legenda {
+        gap: 10px;
+    }
+
+    .lista-topo {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    footer {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+}

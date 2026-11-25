@@ -21,10 +21,13 @@
 
         <p class="menu-titulo">MENU</p>
 
-        <a href="index2.html" class="menu-item">⌂ Início</a>
-        <a href="colegas.html" class="menu-item selecionado">♧ Amigos</a>
-        <a href="trabalhos.html" class="menu-item">▣ Trabalhos</a>
-        <a href="recursos.html" class="menu-item">▤ Recursos</a>
+        <a href="index2.html" class="menu-item">Início</a>
+        <a href="colegas.html" class="menu-item selecionado">Amigos</a>
+        <a href="trabalhos.html" class="menu-item">Trabalhos</a>
+        <a href="recursos.html" class="menu-item">Recursos</a>
+        <a href="agendar.html" class="menu-item">Agendar</a>
+        <a href="chat.html" class="menu-item">Chat</a>
+    
 
         <div class="perfil">
             <div class="avatar-pequeno" id="avatarUsuario">?</div>
@@ -50,84 +53,45 @@
 
         <!-- ABAS -->
         <nav class="abas">
-            <button class="aba ativa" data-aba="todos">
-                Meus amigos
-            </button>
+            <a class="aba" href="colegas.html">Meus amigos</a>
 
-            <button class="aba" data-aba="adicionar">
-                Adicionar amigo
-            </button>
+<a class="aba" href="adicionar.html">Adicionar amigo</a>
 
-            <button class="aba" data-aba="solicitacoes">
-                Solicitações
-                <span id="contadorPedidos">0</span>
-            </button>
+<a class="aba" href="solicitacoes.html">Solicitações</a>
         </nav>
 
-        <!-- ABA AMIGOS -->
-        <section class="painel" id="todos">
+        <!-- MEUS AMIGOS -->
+<section class="painel" id="todos">
+    <h2>Meus amigos</h2>
+    <p>Aqui aparecem seus amigos.</p>
+    <div id="listaAmigos"></div>
+</section>
 
-            <h2>Seus amigos</h2>
-            <p class="descricao-painel">
-                Aqui aparecem os estudantes que você adicionou.
-            </p>
+<!-- ADICIONAR AMIGO -->
+<section class="painel escondido" id="adicionar">
+    <h2>Adicionar amigo</h2>
 
-            <div class="busca-amigos">
-                <input
-                    type="text"
-                    id="filtroAmigos"
-                    placeholder="Pesquisar entre seus amigos..."
-                >
-            </div>
+    <input
+        type="text"
+        id="campoUsuario"
+        placeholder="Digite o nome do usuário"
+    >
 
-            <div id="listaAmigos" class="lista-amigos"></div>
+    <button type="button" id="btnPesquisar">
+        Pesquisar
+    </button>
 
-        </section>
+    <div id="resultadoPesquisa"></div>
+</section>
 
-        <!-- ABA ADICIONAR -->
-        <section class="painel escondido" id="adicionar">
+<!-- SOLICITAÇÕES -->
+<section class="painel escondido" id="solicitacoes">
+    <h2>Solicitações de amizade</h2>
 
-            <div class="caixa-adicionar">
-
-                <div class="icone-adicionar">♧</div>
-
-                <h2>ADICIONE SEUS AMIGOS!</h2>
-
-                <p>
-                    Você pode adicionar colegas usando o nome
-                    de usuário cadastrado no portal.
-                </p>
-
-                <div class="campo-adicionar">
-                    <input
-                        type="text"
-                        id="campoUsuario"
-                        placeholder="Exemplo: maria123"
-                    >
-
-                    <button id="btnPesquisar">
-                        Pesquisar
-                    </button>
-                </div>
-
-                <div id="resultadoPesquisa"></div>
-
-            </div>
-
-        </section>
-
-        <!-- ABA SOLICITAÇÕES -->
-        <section class="painel escondido" id="solicitacoes">
-
-            <h2>Solicitações de amizade</h2>
-
-            <p class="descricao-painel">
-                Veja quem deseja se conectar com você.
-            </p>
-
-            <div id="listaSolicitacoes"></div>
-
-        </section>
+    <div id="listaSolicitacoes">
+        <p>Nenhuma solicitação recebida.</p>
+    </div>
+</section>
 
         <footer>
             © 2026 — Portal da Comunidade Escolar.

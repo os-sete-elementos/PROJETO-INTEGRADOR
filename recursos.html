@@ -1,181 +1,222 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Recursos | Portal da Comunidade Escolar</title>
-
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/recursos.css">
 </head>
 
 <body>
 
-    <header class="cabecalho">
+<div class="app">
 
-        <a class="logo" href="index2.html">
-            PORTAL DA<br>
-            <span>COMUNIDADE ESCOLAR!</span>
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <a href="index2.html" class="logo">
+            PORTAL DA
+            <span>COMUNIDADE</span>
+            <span>ESCOLAR!</span>
         </a>
 
-        <nav class="menu">
-            <a href="index2.html">Home</a>
-            <a href="sobre.html">Sobre</a>
-            <a href="suporte.html">Suporte</a>
-            <a class="ativo" href="recursos.html">Recursos</a>
+        <p class="menu-titulo">MENU</p>
+
+        <nav class="menu-lateral">
+            <a href="index2.html" class="menu-item">Início</a>
+            <a href="colegas.html" class="menu-item">Amigos</a>
+            <a href="trabalhos.html" class="menu-item">Trabalhos</a>
+            <a href="recursos.html" class="menu-item selecionado">Recursos</a>
+            <a href="agendar.html" class="menu-item">Agendar</a>
+            <a href="chat.html" class="menu-item">Chat</a>
         </nav>
-<div class="acoes">
 
-            <a href="foto.html"
-               class="perfil-link"
-               id="linkPerfil"
-               title="Meu perfil">
-
-                <img
-                    id="fotoCabecalho"
-                    src=""
-                    alt="Foto de perfil"
-                    style="display: none;"
-                >
-
-                <span id="iconePerfil">👤</span>
-
-            </a>
-
+        <!-- USUÁRIO -->
+        <div class="usuario">
+            <div class="avatar" id="iconePerfil">?</div>
+            <div>
+                <strong>Visitante</strong>
+                <span>Não conectado</span>
+            </div>
         </div>
-    </header>
 
-    <main class="pagina">
+    </aside>
 
-        <section class="titulo-pagina">
-            <p class="etiqueta">ORGANIZE SUA ROTINA</p>
+    <!-- CONTEÚDO -->
+    <main class="conteudo">
 
-            <h1>Recursos escolares</h1>
+        <header class="topo">
+            <div>
+                <h1>Recursos</h1>
+                <p>Organize seus estudos e acompanhe sua rotina escolar!</p>
+            </div>
 
-            <p>
-                Organize seus estudos e fique por dentro de tudo!
-            </p>
-        </section>
+            <a href="index2.html" class="voltar">Voltar ao início</a>
+        </header>
 
+        <!-- RESUMO -->
         <section class="resumo-grid">
 
             <article class="painel resumo">
-                <span class="icone">📚</span>
-                <p>Matérias</p>
-                <strong>10</strong>
+                <div class="icone azul">📚</div>
+                <div>
+                    <p>Materiais de estudo</p>
+                    <strong>Organize seus conteúdos</strong>
+                </div>
             </article>
 
             <article class="painel resumo">
-                <span class="icone">👩‍🏫</span>
-                <p>Professores</p>
-                <strong>7</strong>
+                <div class="icone roxo">📝</div>
+                <div>
+                    <p>Minhas tarefas</p>
+                    <strong id="contadorTarefas">0/4 concluídas</strong>
+                </div>
             </article>
 
             <article class="painel resumo">
-                <span class="icone">📝</span>
-                <p>Atividades</p>
-                <strong>2/10</strong>
+                <div class="icone verde">📅</div>
+                <div>
+                    <p>Compromissos</p>
+                    <strong id="contadorEventos">0 agendados</strong>
+                </div>
             </article>
 
         </section>
 
-        <section class="recursos-grid">
+        <!-- ATALHOS -->
+        <section class="secao">
 
-            <article class="painel">
+            <div class="titulo-secao">
+                <h2>Acesso rápido</h2>
+                <p>Encontre as ferramentas do portal.</p>
+            </div>
 
-                <h2>Lista de tarefas</h2>
+            <div class="atalhos-grid">
 
-                <ul class="tarefas">
+                <a href="trabalhos.html" class="painel atalho">
+                    <span>📚</span>
+                    <h3>Trabalhos</h3>
+                    <p>Organize seus trabalhos escolares.</p>
+                    <strong>Acessar →</strong>
+                </a>
 
-                    <li>
-                        <span class="materia">Redação</span>
-                        Produzir um texto dissertativo
-                    </li>
+                <a href="agendar.html" class="painel atalho">
+                    <span>📅</span>
+                    <h3>Agenda escolar</h3>
+                    <p>Agende provas e datas importantes.</p>
+                    <strong>Acessar →</strong>
+                </a>
 
-                    <li>
-                        <span class="materia">Matemática</span>
-                        Resolver exercícios da página 45
-                    </li>
+                <a href="colegas.html" class="painel atalho">
+                    <span>👥</span>
+                    <h3>Amigos</h3>
+                    <p>Conecte-se com seus colegas.</p>
+                    <strong>Acessar →</strong>
+                </a>
 
-                    <li>
-                        <span class="materia">História</span>
-                        Estudar para prova
-                    </li>
+            </div>
 
-                    <li>
-                        <span class="materia">Ciências</span>
-                        Ler o capítulo 5
-                    </li>
+        </section>
 
-                </ul>
+        <!-- ORGANIZAÇÃO -->
+        <section class="conteudo-grid">
 
-                <p class="frase">
-                    Organize seus estudos e fique por dentro de tudo!
-                    <br>
-                    O Portal da Comunidade Escolar facilita
-                    sua rotina acadêmica.
-                </p>
+            <article class="painel tarefas-painel">
+
+                <div class="titulo-secao">
+                    <h2>Minha organização</h2>
+                    <p>Acompanhe suas atividades.</p>
+                </div>
+
+                <div class="progresso-info">
+                    <span>Progresso das atividades</span>
+                    <strong id="porcentagem">0%</strong>
+                </div>
+
+                <div class="barra-progresso">
+                    <div id="barraPreenchida"></div>
+                </div>
+
+                <div class="lista-tarefas">
+
+                    <label class="tarefa">
+                        <input type="checkbox" class="check-tarefa">
+                        <span>
+                            <strong>Redação</strong>
+                            <small>Produzir um texto dissertativo</small>
+                        </span>
+                    </label>
+
+                    <label class="tarefa">
+                        <input type="checkbox" class="check-tarefa">
+                        <span>
+                            <strong>Matemática</strong>
+                            <small>Resolver exercícios da página 45</small>
+                        </span>
+                    </label>
+
+                    <label class="tarefa">
+                        <input type="checkbox" class="check-tarefa">
+                        <span>
+                            <strong>História</strong>
+                            <small>Estudar para a próxima prova</small>
+                        </span>
+                    </label>
+
+                    <label class="tarefa">
+                        <input type="checkbox" class="check-tarefa">
+                        <span>
+                            <strong>Ciências</strong>
+                            <small>Ler o capítulo 5</small>
+                        </span>
+                    </label>
+
+                </div>
+
+                <button id="limparTarefas" class="botao-secundario">
+                    Desmarcar tarefas concluídas
+                </button>
 
             </article>
 
+            <!-- LATERAL DIREITA -->
             <div class="coluna-lateral">
 
+                <!-- AVISOS -->
                 <article class="painel">
 
-                    <h2>Avisos</h2>
+                    <div class="titulo-secao">
+                        <h2>🔔 Avisos</h2>
+                        <p>Trabalhos cadastrados e próximos compromissos.</p>
+                    </div>
 
-                    <p class="vazio">
-                        Não há avisos no momento.
-                    </p>
+                    <div id="avisosTrabalhos">
+                        <p class="vazio">Nenhum trabalho cadastrado.</p>
+                    </div>
+
+                    <div id="avisosAgendamentos">
+                        <p class="vazio">Nenhum aviso no momento.</p>
+                    </div>
 
                 </article>
 
+                <!-- EVENTOS -->
                 <article class="painel">
 
-                    <h2>Próximos eventos</h2>
-
-                    <div class="evento">
-
-                        <div class="data">
-                            <strong>NOV</strong>
-                            <span>05</span>
-                        </div>
-
-                        <div>
-                            <strong>Prova de Matemática</strong>
-                            <p>8:00</p>
-                        </div>
-
+                    <div class="titulo-secao">
+                        <h2>📅 Próximos eventos</h2>
+                        <p>Confira sua agenda.</p>
                     </div>
 
-                    <div class="evento">
-
-                        <div class="data">
-                            <strong>OUT</strong>
-                            <span>05</span>
-                        </div>
-
-                        <div>
-                            <strong>Apresentação dos alunos</strong>
-                            <p>13:10</p>
-                        </div>
-
+                    <div id="listaEventos">
+                        <p class="vazio">Nenhum evento agendado.</p>
                     </div>
 
-                    <div class="evento">
-
-                        <div class="data">
-                            <strong>NOV</strong>
-                            <span>05</span>
-                        </div>
-
-                        <div>
-                            <strong>Reunião dos pais</strong>
-                            <p>15:30</p>
-                        </div>
-
-                    </div>
+                    <a href="agendar.html" class="botao-principal">
+                        + Novo agendamento
+                    </a>
 
                 </article>
 
@@ -183,15 +224,334 @@
 
         </section>
 
+        <!-- MENSAGEM FINAL -->
+        <section class="mensagem-final">
+            💙
+            <div>
+                <h3>Organize seus estudos!</h3>
+                <p>
+                    O Portal da Comunidade Escolar facilita
+                    sua rotina acadêmica.
+                </p>
+            </div>
+        </section>
+
     </main>
 
-    <footer>
-        © 2026 — Portal da Comunidade Escolar.
-        Todos os direitos reservados.
-        <br>
-        Desenvolvido pelo grupo <strong>6 Elementos</strong>.
-    </footer>
+</div>
+
+<footer>
+    © 2026 — Portal da Comunidade Escolar. Todos os direitos reservados.
+    <br>
+    Desenvolvido pelo grupo <strong>6 Elementos.</strong>
+</footer>
+
+<script>
+
+// =====================================
+// TAREFAS
+// =====================================
+
+const tarefas = document.querySelectorAll(".check-tarefa");
+
+function atualizarTarefas() {
+
+    const concluidas = [...tarefas].filter(tarefa => tarefa.checked).length;
+    const total = tarefas.length;
+
+    const porcentagem = total > 0
+        ? Math.round((concluidas / total) * 100)
+        : 0;
+
+    document.getElementById("contadorTarefas").textContent =
+        `${concluidas}/${total} concluídas`;
+
+    document.getElementById("porcentagem").textContent =
+        porcentagem + "%";
+
+    document.getElementById("barraPreenchida").style.width =
+        porcentagem + "%";
+
+    tarefas.forEach(tarefa => {
+        tarefa.parentElement.classList.toggle(
+            "concluida",
+            tarefa.checked
+        );
+    });
+
+    localStorage.setItem(
+        "tarefasRecursos",
+        JSON.stringify([...tarefas].map(tarefa => tarefa.checked))
+    );
+}
+
+// Recuperar tarefas salvas
+function recuperarTarefas() {
+
+    let tarefasSalvas = [];
+
+    try {
+        tarefasSalvas = JSON.parse(
+            localStorage.getItem("tarefasRecursos") || "[]"
+        );
+    } catch (erro) {
+        tarefasSalvas = [];
+    }
+
+    tarefas.forEach((tarefa, indice) => {
+        tarefa.checked = tarefasSalvas[indice] === true;
+        tarefa.addEventListener("change", atualizarTarefas);
+    });
+
+    atualizarTarefas();
+}
+
+recuperarTarefas();
+
+// Desmarcar tarefas
+document.getElementById("limparTarefas").addEventListener("click", () => {
+
+    tarefas.forEach(tarefa => {
+        tarefa.checked = false;
+    });
+
+    atualizarTarefas();
+
+});
+
+
+// =====================================
+// AGENDAMENTOS E AVISOS
+// =====================================
+
+function carregarAgendamentos() {
+
+    let agendamentos = [];
+
+    try {
+        agendamentos = JSON.parse(
+            localStorage.getItem("agendamentosEscolares") || "[]"
+        );
+    } catch (erro) {
+        agendamentos = [];
+    }
+
+    const hoje = new Date();
+
+    const dataHoje =
+        `${hoje.getFullYear()}-${String(hoje.getMonth() + 1).padStart(2, "0")}-${String(hoje.getDate()).padStart(2, "0")}`;
+
+    const proximos = agendamentos
+        .filter(evento => evento.data && evento.data >= dataHoje)
+        .sort((a, b) =>
+            (a.data + (a.horario || "")).localeCompare(
+                b.data + (b.horario || "")
+            )
+        );
+
+    document.getElementById("contadorEventos").textContent =
+        `${proximos.length} agendados`;
+
+    const avisos = document.getElementById("avisosAgendamentos");
+    const eventos = document.getElementById("listaEventos");
+
+    avisos.innerHTML = "";
+    eventos.innerHTML = "";
+
+    if (proximos.length === 0) {
+
+        avisos.textContent = "Nenhum aviso no momento.";
+        eventos.textContent = "Nenhum evento agendado.";
+
+        avisos.className = "vazio";
+        eventos.className = "vazio";
+
+        return;
+    }
+
+    avisos.className = "";
+    eventos.className = "";
+
+    proximos.forEach(evento => {
+
+        const [ano, mes, dia] = evento.data.split("-");
+        const dataFormatada = `${dia}/${mes}/${ano}`;
+        const horarioEvento = evento.horario || "Horário não informado";
+
+        // AVISO
+        const aviso = document.createElement("div");
+        aviso.className = "aviso";
+
+        const tituloAviso = document.createElement("strong");
+        tituloAviso.textContent = evento.titulo || "Evento sem título";
+
+        const dataAviso = document.createElement("p");
+        dataAviso.textContent =
+            `${dataFormatada} às ${horarioEvento}`;
+
+        aviso.append(tituloAviso, dataAviso);
+        avisos.appendChild(aviso);
+
+        // EVENTO
+        const item = document.createElement("div");
+        item.className = "evento";
+
+        const data = document.createElement("div");
+        data.className = "evento-data";
+
+        const meses = [
+            "JAN", "FEV", "MAR", "ABR", "MAI", "JUN",
+            "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"
+        ];
+
+        const mesElemento = document.createElement("strong");
+        mesElemento.textContent = meses[Number(mes) - 1] || "";
+
+        const diaElemento = document.createElement("span");
+        diaElemento.textContent = dia;
+
+        data.append(mesElemento, diaElemento);
+
+        const info = document.createElement("div");
+
+        const nome = document.createElement("strong");
+        nome.textContent = evento.titulo || "Evento sem título";
+
+        const horario = document.createElement("p");
+        horario.textContent =
+            `${dataFormatada} • ${horarioEvento}`;
+
+        info.append(nome, horario);
+        item.append(data, info);
+
+        eventos.appendChild(item);
+
+    });
+
+}
+
+
+// =====================================
+// TRABALHOS CADASTRADOS
+// =====================================
+
+function carregarAvisosTrabalhos() {
+
+    const container = document.getElementById("avisosTrabalhos");
+
+    if (!container) return;
+
+    let trabalhos = [];
+
+    try {
+        trabalhos = JSON.parse(
+            localStorage.getItem("trabalhosEscolares") || "[]"
+        );
+    } catch (erro) {
+        trabalhos = [];
+    }
+
+    container.innerHTML = "";
+
+    if (!Array.isArray(trabalhos) || trabalhos.length === 0) {
+        container.className = "vazio";
+        container.textContent = "Nenhum trabalho cadastrado.";
+        return;
+    }
+
+    container.className = "";
+
+    trabalhos.forEach(trabalho => {
+
+        const aviso = document.createElement("div");
+        aviso.className = "aviso";
+
+        const titulo = document.createElement("strong");
+        titulo.textContent = trabalho.titulo || "Trabalho sem título";
+
+        const materia = document.createElement("p");
+        materia.textContent = "Matéria: " + (trabalho.materia || "Não informada");
+
+        const entrega = document.createElement("p");
+
+        if (trabalho.dataEntrega) {
+            const partes = trabalho.dataEntrega.split("-");
+            const dataFormatada = partes.length === 3
+                ? `${partes[2]}/${partes[1]}/${partes[0]}`
+                : trabalho.dataEntrega;
+
+            entrega.textContent = "Entrega: " + dataFormatada;
+        } else {
+            entrega.textContent = "Data de entrega não informada";
+        }
+
+        aviso.append(titulo, materia, entrega);
+        container.appendChild(aviso);
+
+    });
+
+}
+
+
+// =====================================
+// FOTO DE PERFIL
+// =====================================
+
+function carregarFotoPerfil() {
+
+    const fotoSalva = localStorage.getItem("fotoPerfil");
+    const avatar = document.getElementById("iconePerfil");
+
+    if (!avatar) return;
+
+    if (fotoSalva) {
+
+        avatar.innerHTML = "";
+
+        const img = document.createElement("img");
+        img.src = fotoSalva;
+        img.alt = "Foto de perfil";
+        img.className = "foto-usuario";
+
+        avatar.appendChild(img);
+    }
+}
+
+
+// =====================================
+// ATUALIZAÇÃO AUTOMÁTICA
+// =====================================
+
+function atualizarRecursos() {
+    carregarAgendamentos();
+    carregarAvisosTrabalhos();
+    carregarFotoPerfil();
+}
+
+atualizarRecursos();
+
+window.addEventListener("focus", atualizarRecursos);
+
+// Atualização quando os dados mudarem em outra aba
+window.addEventListener("storage", evento => {
+
+    if (
+        evento.key === "agendamentosEscolares" ||
+        evento.key === "trabalhosEscolares"
+    ) {
+        atualizarRecursos();
+    }
+
+    if (evento.key === "fotoPerfil") {
+        carregarFotoPerfil();
+    }
+
+});
+
+// Atualização quando trabalhos forem alterados na mesma aba
+window.addEventListener("trabalhosAtualizados", carregarAvisosTrabalhos);
+
+</script>
 
 </body>
-
 </html>

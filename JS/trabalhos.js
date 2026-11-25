@@ -1,316 +1,424 @@
 
+/* =====================================
+   PORTAL DA COMUNIDADE ESCOLAR
+   SISTEMA DE TRABALHOS
+===================================== */
+
 const CHAVE_TRABALHOS = "trabalhosEscolares";
 
-// Recuperar os trabalhos salvos
-function carregarDados() {
+let filtroAtual = "todos";
+
+
+// =====================================
+// ARMAZENAMENTO
+// =====================================
+
+function obterTrabalhos() {
+
     try {
         return JSON.parse(
-            localStorage.getItem(CHAVE_TRABALHOS)
-        ) || [];
-    } catch {
+            localStorage.getItem(CHAVE_TRABALHOS) || "[]"
+        );
+    } catch (erro) {
         return [];
     }
+
 }
 
-// Salvar trabalhos
-function salvarDados(trabalhos) {
+
+function salvarTrabalhos(trabalhos) {
+
     localStorage.setItem(
         CHAVE_TRABALHOS,
         JSON.stringify(trabalhos)
     );
+
+    // Atualiza outras partes do portal
+    window.dispatchEvent(
+        new Event("trabalhosAtualizados")
+    );
+
 }
 
-// Identificar o aluno conectado
-function usuarioLogado() {
-    try {
-        return JSON.parse(
-            localStorage.getItem("usuarioLogado")
-        );
-    } catch {
-        return null;
+
+// =====================================
+// CADASTRAR TRABALHO
+// =====================================
+
+const formulario = document.getElementById("formTrabalho");
+
+if (formulario) {
+
+    formulario.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const titulo = document.getElementById("titulo").value.trim();
+        const materia = document.getElementById("materia").value;
+        const dataEntrega = document.getElementById("dataEntrega").value;
+        const grupo = document.getElementById("grupo").value.trim();
+        const descricao = document.getElementById("descricao").value.trim();
+
+        if (!titulo || !materia || !dataEntrega) {
+            alert("Preencha todos os campos obrigatórios!");
+            return;
+        }
+
+        const novoTrabalho = {
+            id: Date.now().toString(),
+            titulo,
+            materia,
+            dataEntrega,
+            grupo,
+            descricao,
+            status: "andamento"
+        };
+
+        const trabalhos = obterTrabalhos();
+
+        trabalhos.push(novoTrabalho);
+
+        salvarTrabalhos(trabalhos);
+
+        formulario.reset();
+
+        atualizarPagina();
+
+        alert("Trabalho cadastrado com sucesso!");
+
+    });
+
+}
+
+
+// =====================================
+// CONTADORES
+// =====================================
+
+function atualizarContadores() {
+
+    const trabalhos = obterTrabalhos();
+
+    const total = trabalhos.length;
+
+    const concluidos = trabalhos.filter(
+        trabalho => trabalho.status === "concluido"
+    ).length;
+
+    const andamento = total - concluidos;
+
+    const totalElemento = document.getElementById("totalTrabalhos");
+    const andamentoElemento = document.getElementById("emAndamento");
+    const concluidosElemento = document.getElementById("concluidos");
+
+    if (totalElemento) {
+        totalElemento.textContent = total;
     }
-}
 
-const usuario = usuarioLogado();
-
-let filtroAtual = "todos";
-
-// Perfil do aluno
-function carregarPerfil() {
-    const nome = document.getElementById("nomeUsuario");
-    const avatar = document.getElementById("avatarUsuario");
-    const status = document.getElementById("statusUsuario");
-
-    if (usuario) {
-        nome.textContent = usuario.nome || usuario.usuario;
-        avatar.textContent =
-            (usuario.nome || usuario.usuario || "?")
-            .charAt(0).toUpperCase();
-
-        status.textContent = "Conectado";
-    } else {
-        nome.textContent = "Visitante";
-        avatar.textContent = "?";
-        status.textContent = "Não conectado";
+    if (andamentoElemento) {
+        andamentoElemento.textContent = andamento;
     }
+
+    if (concluidosElemento) {
+        concluidosElemento.textContent = concluidos;
+    }
+
 }
 
-// Data formatada
+
+// =====================================
+// FORMATAR DATA
+// =====================================
+
 function formatarData(data) {
-    if (!data) return "Sem data";
 
-    const partes = data.split("-");
-    return `${partes[2]}/${partes[1]}/${partes[0]}`;
+    if (!data) return "Data não informada";
+
+    const [ano, mes, dia] = data.split("-");
+
+    return `${dia}/${mes}/${ano}`;
+
 }
 
-// Criar trabalho
-document.getElementById("formTrabalho")
-.addEventListener("submit", function(event) {
 
-    event.preventDefault();
+// =====================================
+// EXIBIR TRABALHOS
+// =====================================
 
-    if (!usuario) {
-        alert("Faça login para criar um trabalho!");
-        return;
-    }
-
-    const titulo = document.getElementById("titulo").value.trim();
-    const materia = document.getElementById("materia").value;
-    const data = document.getElementById("dataEntrega").value;
-    const grupo = document.getElementById("grupo").value.trim();
-    const descricao = document.getElementById("descricao").value.trim();
-
-    if (!titulo || !materia || !data) {
-        alert("Preencha os campos obrigatórios!");
-        return;
-    }
-
-    if (data < new Date().toLocaleDateString("en-CA")) {
-        alert("Escolha uma data de entrega válida!");
-        return;
-    }
-
-    const trabalhos = carregarDados();
-
-    const novoTrabalho = {
-        id: Date.now().toString(),
-        autor: usuario.usuario,
-        titulo,
-        materia,
-        data,
-        grupo,
-        descricao,
-        concluido: false
-    };
-
-    trabalhos.push(novoTrabalho);
-
-    salvarDados(trabalhos);
-
-    this.reset();
-
-    alert("Trabalho criado com sucesso! 💙");
-
-    atualizarPagina();
-});
-
-// Mostrar trabalhos
 function mostrarTrabalhos() {
 
     const lista = document.getElementById("listaTrabalhos");
-    lista.replaceChildren();
 
-    if (!usuario) {
-        const aviso = document.createElement("p");
-        aviso.className = "mensagem-vazia";
-        aviso.textContent =
-            "Entre na sua conta para visualizar seus trabalhos.";
+    if (!lista) return;
 
-        lista.appendChild(aviso);
-        atualizarResumo([]);
-        return;
-    }
+    let trabalhos = obterTrabalhos();
 
-    const trabalhos = carregarDados().filter(t =>
-        t.autor === usuario.usuario
-    );
-
-    atualizarResumo(trabalhos);
-
-    let filtrados = trabalhos;
-
+    // FILTRO EM ANDAMENTO
     if (filtroAtual === "andamento") {
-        filtrados = trabalhos.filter(t => !t.concluido);
+
+        trabalhos = trabalhos.filter(
+            trabalho => trabalho.status === "andamento"
+        );
+
     }
 
+    // FILTRO CONCLUÍDOS
     if (filtroAtual === "concluido") {
-        filtrados = trabalhos.filter(t => t.concluido);
+
+        trabalhos = trabalhos.filter(
+            trabalho => trabalho.status === "concluido"
+        );
+
     }
 
-    filtrados.sort((a, b) =>
-        a.data.localeCompare(b.data)
+    lista.innerHTML = "";
+
+    if (trabalhos.length === 0) {
+
+        const mensagem = document.createElement("p");
+
+        mensagem.className = "mensagem-vazia";
+
+        mensagem.textContent = "Nenhum trabalho encontrado.";
+
+        lista.appendChild(mensagem);
+
+        return;
+
+    }
+
+    // ORGANIZAR PELA DATA DE ENTREGA
+    trabalhos.sort((a, b) =>
+        (a.dataEntrega || "").localeCompare(b.dataEntrega || "")
     );
 
-    if (filtrados.length === 0) {
-        const aviso = document.createElement("p");
-        aviso.className = "mensagem-vazia";
 
-        aviso.textContent = trabalhos.length === 0
-            ? "Você ainda não adicionou nenhum trabalho. 📚"
-            : "Nenhum trabalho encontrado nesta categoria.";
-
-        lista.appendChild(aviso);
-        return;
-    }
-
-    filtrados.forEach(trabalho => {
+    trabalhos.forEach(trabalho => {
 
         const card = document.createElement("article");
+
         card.className = "trabalho-card";
 
+
+        // TÍTULO E STATUS
         const topo = document.createElement("div");
+
         topo.className = "trabalho-topo";
 
         const titulo = document.createElement("h3");
-        titulo.textContent = trabalho.titulo;
+
+        titulo.textContent = trabalho.titulo || "Sem título";
 
         const status = document.createElement("span");
-        status.className = "status-trabalho";
 
-        if (trabalho.concluido) {
-            status.textContent = "Concluído";
-            status.classList.add("concluido");
-        } else {
-            status.textContent = "Em andamento";
-        }
+        status.className =
+            trabalho.status === "concluido"
+                ? "status concluido"
+                : "status andamento";
+
+        status.textContent =
+            trabalho.status === "concluido"
+                ? "Concluído"
+                : "Em andamento";
 
         topo.append(titulo, status);
 
-        const materia = document.createElement("span");
-        materia.className = "materia";
-        materia.textContent = trabalho.materia;
 
-        const descricao = document.createElement("p");
-        descricao.className = "trabalho-descricao";
-        descricao.textContent =
-            trabalho.descricao || "Nenhuma descrição adicionada.";
+        // MATÉRIA
+        const materia = document.createElement("p");
 
-        const detalhes = document.createElement("div");
-        detalhes.className = "trabalho-detalhes";
+        materia.textContent =
+            "📚 Matéria: " + (trabalho.materia || "Não informada");
 
-        const data = document.createElement("span");
-        data.textContent = "📅 Entrega: " + formatarData(trabalho.data);
 
-        detalhes.appendChild(data);
+        // DATA DE ENTREGA
+        const entrega = document.createElement("p");
 
+        entrega.textContent =
+            "📅 Entrega: " + formatarData(trabalho.dataEntrega);
+
+        card.append(topo, materia, entrega);
+
+
+        // GRUPO
         if (trabalho.grupo) {
-            const grupo = document.createElement("span");
-            grupo.textContent = "👥 " + trabalho.grupo;
-            detalhes.appendChild(grupo);
+
+            const grupo = document.createElement("p");
+
+            grupo.textContent = "👥 Grupo: " + trabalho.grupo;
+
+            card.appendChild(grupo);
+
         }
 
-        const acoes = document.createElement("div");
-        acoes.className = "trabalho-acoes";
 
-        const concluir = document.createElement("button");
-        concluir.className = "btn-concluir";
+        // DESCRIÇÃO
+        if (trabalho.descricao) {
 
-        concluir.textContent = trabalho.concluido
-            ? "Reabrir trabalho"
-            : "✓ Marcar como concluído";
+            const descricao = document.createElement("p");
 
-        concluir.addEventListener("click", () => {
+            descricao.textContent = trabalho.descricao;
+
+            descricao.className = "descricao-trabalho";
+
+            card.appendChild(descricao);
+
+        }
+
+
+        // BOTÕES
+        const botoes = document.createElement("div");
+
+        botoes.className = "acoes-trabalho";
+
+
+        // ALTERAR STATUS
+        const botaoStatus = document.createElement("button");
+
+        botaoStatus.className = "btn-status";
+
+        botaoStatus.textContent =
+            trabalho.status === "concluido"
+                ? "Reabrir trabalho"
+                : "Marcar como concluído";
+
+        botaoStatus.addEventListener("click", function() {
+
             alterarStatus(trabalho.id);
+
         });
 
-        const excluir = document.createElement("button");
-        excluir.className = "btn-excluir";
-        excluir.textContent = "Excluir";
 
-        excluir.addEventListener("click", () => {
+        // EXCLUIR
+        const botaoExcluir = document.createElement("button");
+
+        botaoExcluir.className = "btn-excluir";
+
+        botaoExcluir.textContent = "Excluir";
+
+        botaoExcluir.addEventListener("click", function() {
+
             excluirTrabalho(trabalho.id);
+
         });
 
-        acoes.append(concluir, excluir);
 
-        card.append(topo, materia, descricao, detalhes, acoes);
+        botoes.append(botaoStatus, botaoExcluir);
+
+        card.appendChild(botoes);
 
         lista.appendChild(card);
+
     });
+
 }
 
-// Atualizar os números do resumo
-function atualizarResumo(trabalhos) {
 
-    document.getElementById("totalTrabalhos").textContent =
-        trabalhos.length;
+// =====================================
+// ALTERAR STATUS
+// =====================================
 
-    document.getElementById("emAndamento").textContent =
-        trabalhos.filter(t => !t.concluido).length;
-
-    document.getElementById("concluidos").textContent =
-        trabalhos.filter(t => t.concluido).length;
-}
-
-// Marcar ou reabrir trabalho
 function alterarStatus(id) {
 
-    const trabalhos = carregarDados();
+    const trabalhos = obterTrabalhos();
 
-    const trabalho = trabalhos.find(t =>
-        t.id === id &&
-        t.autor === usuario.usuario
-    );
+    const atualizados = trabalhos.map(trabalho => {
 
-    if (!trabalho) return;
+        if (trabalho.id === id) {
 
-    trabalho.concluido = !trabalho.concluido;
+            trabalho.status =
+                trabalho.status === "concluido"
+                    ? "andamento"
+                    : "concluido";
 
-    salvarDados(trabalhos);
+        }
+
+        return trabalho;
+
+    });
+
+    salvarTrabalhos(atualizados);
 
     atualizarPagina();
+
 }
 
-// Excluir trabalho
+
+// =====================================
+// EXCLUIR TRABALHO
+// =====================================
+
 function excluirTrabalho(id) {
 
-    if (!confirm("Tem certeza que deseja excluir este trabalho?")) {
-        return;
-    }
-
-    const trabalhos = carregarDados().filter(t =>
-        !(t.id === id && t.autor === usuario.usuario)
+    const confirmar = confirm(
+        "Deseja realmente excluir este trabalho?"
     );
 
-    salvarDados(trabalhos);
+    if (!confirmar) return;
+
+    const trabalhos = obterTrabalhos().filter(
+        trabalho => trabalho.id !== id
+    );
+
+    salvarTrabalhos(trabalhos);
 
     atualizarPagina();
+
 }
 
-// Filtros
+
+// =====================================
+// FILTROS
+// =====================================
+
 document.querySelectorAll(".filtro").forEach(botao => {
 
-    botao.addEventListener("click", () => {
+    botao.addEventListener("click", function() {
 
-        document.querySelectorAll(".filtro").forEach(b =>
-            b.classList.remove("ativo")
-        );
+        document.querySelectorAll(".filtro").forEach(item => {
+            item.classList.remove("ativo");
+        });
 
-        botao.classList.add("ativo");
+        this.classList.add("ativo");
 
-        filtroAtual = botao.dataset.filtro;
+        filtroAtual = this.dataset.filtro;
 
         mostrarTrabalhos();
+
     });
 
 });
 
-// Atualizar página
+
+// =====================================
+// ATUALIZAR PÁGINA
+// =====================================
+
 function atualizarPagina() {
+
+    atualizarContadores();
+
     mostrarTrabalhos();
+
 }
 
-window.addEventListener("storage", atualizarPagina);
 
-carregarPerfil();
+// =====================================
+// SINCRONIZAÇÃO
+// =====================================
+
+// Atualiza quando os trabalhos mudarem em outra aba
+window.addEventListener("storage", function(event) {
+
+    if (event.key === CHAVE_TRABALHOS) {
+        atualizarPagina();
+    }
+
+});
+
+
+// =====================================
+// INICIALIZAÇÃO
+// =====================================
+
 atualizarPagina();

@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chat em Grupo | Portal da Comunidade Escolar</title>
+
+    <link rel="stylesheet" href="css/chat.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            PORTAL DA
+            <span>COMUNIDADE ESCOLAR!</span>
+        </div>
+
+        <p class="menu-titulo">MENU</p>
+
+        <nav class="menu">
+
+            <a href="index2.html" class="menu-item">
+                Início
+            </a>
+
+            <a href="colegas.html" class="menu-item">
+                Amigos
+            </a>
+
+            <a href="trabalhos.html" class="menu-item">
+                Trabalhos
+            </a>
+
+            <a href="recursos.html" class="menu-item">
+                Recursos
+            </a>
+
+            <a href="chat.html" class="menu-item selecionado">
+                Chat
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+
+        <!-- CABEÇALHO -->
+        <header class="topo">
+
+            <div>
+                <h1>Chat em Grupo</h1>
+                <p>Converse, compartilhe ideias e aprenda com seus colegas!</p>
+            </div>
+
+            <div class="perfil">
+
+                <div class="avatar" id="avatarUsuario">?</div>
+
+                <span id="nomeUsuario">Usuário</span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ÁREA DO CHAT -->
+        <section class="area-chat">
+
+            <!-- LISTA DE GRUPOS -->
+            <aside class="lista-grupos">
+
+                <div class="grupos-topo">
+
+                    <h2>Meus grupos</h2>
+
+                    <button type="button" id="btnCriarGrupo">
+                        + Criar
+                    </button>
+
+                </div>
+
+                <input
+                    type="text"
+                    id="pesquisarGrupo"
+                    placeholder="Pesquisar grupo..."
+                >
+
+                <div id="listaGrupos">
+
+                    <div class="grupo-vazio">
+                        <p>Você ainda não participa de nenhum grupo.</p>
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+            <!-- CONVERSA -->
+            <section class="conversa">
+
+                <header class="conversa-topo">
+
+                    <div class="grupo-informacoes">
+
+                        <div class="grupo-avatar" id="avatarGrupo">
+                            💬
+                        </div>
+
+                        <div>
+                            <h2 id="nomeGrupo">Selecione um grupo</h2>
+
+                            <p id="quantidadeMembros">
+                                Nenhum grupo selecionado
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="btnVerMembros"
+                        class="botao-membros"
+                    >
+                        Participantes
+                    </button>
+
+                </header>
+
+
+                <!-- MENSAGENS -->
+                <div class="mensagens" id="mensagens">
+
+                    <div class="mensagem-inicial">
+                        <div class="icone-chat">💬</div>
+
+                        <h3>Bem-vindo ao Chat em Grupo!</h3>
+
+                        <p>
+                            Selecione um grupo para começar a conversar
+                            com seus colegas.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- CAMPO DE ENVIO -->
+                <form class="campo-mensagem" id="formMensagem">
+
+                    <input
+                        type="text"
+                        id="textoMensagem"
+                        placeholder="Digite sua mensagem..."
+                        autocomplete="off"
+                    >
+
+                    <button type="submit" id="btnEnviar">
+                        Enviar ➤
+                    </button>
+
+                </form>
+
+            </section>
+
+        </section>
+
+
+        <!-- JANELA DE CRIAR GRUPO -->
+        <div class="modal escondido" id="modalGrupo">
+
+            <div class="modal-conteudo">
+
+                <button
+                    type="button"
+                    class="fechar-modal"
+                    id="fecharModal"
+                >
+                    ×
+                </button>
+
+                <h2>Criar novo grupo</h2>
+
+                <p>Crie um espaço para conversar com seus colegas.</p>
+
+                <form id="formCriarGrupo">
+
+                    <label for="nomeNovoGrupo">Nome do grupo</label>
+
+                    <input
+                        type="text"
+                        id="nomeNovoGrupo"
+                        placeholder="Ex: Grupo de Matemática"
+                        required
+                    >
+
+                    <label for="descricaoGrupo">Descrição</label>
+
+                    <textarea
+                        id="descricaoGrupo"
+                        placeholder="Sobre o que será o grupo?"
+                        rows="3"
+                    ></textarea>
+
+                    <button type="submit" class="botao-criar">
+                        Criar grupo
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- JANELA DE PARTICIPANTES -->
+        <div class="modal escondido" id="modalMembros">
+
+            <div class="modal-conteudo">
+
+                <button
+                    type="button"
+                    class="fechar-modal"
+                    id="fecharMembros"
+                >
+                    ×
+                </button>
+
+                <h2>Participantes do grupo</h2>
+
+                <div id="listaMembros">
+                    <p>Nenhum participante para mostrar.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="JS/chat.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,570 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agendar | Portal da Comunidade Escolar</title>
+
+    <link rel="stylesheet" href="css/agendar.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            PORTAL DA
+            <span>COMUNIDADE<br>ESCOLAR!</span>
+        </div>
+
+        <p class="menu-titulo">MENU</p>
+
+        <nav class="menu">
+
+            <a href="index2.html" class="menu-item">
+                Início
+            </a>
+
+            <a href="colegas.html" class="menu-item">
+                Amigos
+            </a>
+
+            <a href="trabalhos.html" class="menu-item">
+                Trabalhos
+            </a>
+
+            <a href="recursos.html" class="menu-item">
+                Recursos
+            </a>
+
+            <a href="agendar.html" class="menu-item selecionado">
+                Agendar
+            </a>
+            <a href="chat.html" class="menu-item">
+                Chat
+            </a>
+
+        </nav>
+
+        <!-- PERFIL -->
+        <div class="perfil">
+
+            <div class="avatar">?</div>
+
+            <div>
+                <strong>Visitante</strong>
+                <small>Não conectado</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="conteudo">
+
+        <header class="topo">
+
+            <div>
+                <h1>Agendar</h1>
+                <p>Organize seus compromissos e datas importantes!</p>
+            </div>
+
+            <a href="index2.html" class="voltar">
+                Voltar ao início
+            </a>
+
+        </header>
+
+
+        <!-- CALENDÁRIO -->
+        <section class="area-calendario">
+
+            <div class="calendario">
+
+                <div class="calendario-topo">
+
+                    <div>
+                        <h2>Meu calendário</h2>
+                        <p>Escolha uma data para agendar seu compromisso.</p>
+                    </div>
+
+                    <div class="navegacao">
+
+                        <button id="mesAnterior" type="button">
+                            ❮
+                        </button>
+
+                        <h3 id="mesAno"></h3>
+
+                        <button id="proximoMes" type="button">
+                            ❯
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DIAS DA SEMANA -->
+                <div class="dias-semana">
+
+                    <span>Dom</span>
+                    <span>Seg</span>
+                    <span>Ter</span>
+                    <span>Qua</span>
+                    <span>Qui</span>
+                    <span>Sex</span>
+                    <span>Sáb</span>
+
+                </div>
+
+
+                <!-- DIAS DO CALENDÁRIO -->
+                <div class="dias" id="diasCalendario"></div>
+
+
+                <div class="legenda">
+
+                    <span>
+                        <i class="bolinha hoje"></i>
+                        Hoje
+                    </span>
+
+                    <span>
+                        <i class="bolinha evento"></i>
+                        Dia agendado
+                    </span>
+
+                    <span>
+                        <i class="bolinha selecionado-legenda"></i>
+                        Data selecionada
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAINEL DE AGENDAMENTO -->
+            <aside class="painel">
+
+                <h2>Novo agendamento</h2>
+
+                <p class="descricao">
+                    Adicione um compromisso ao seu calendário.
+                </p>
+
+                <form id="formAgendamento">
+
+                    <label for="titulo">
+                        Nome do compromisso
+                    </label>
+
+                    <input
+                        type="text"
+                        id="titulo"
+                        placeholder="Ex: Reunião escolar"
+                        required
+                    >
+
+                    <label for="data">
+                        Data
+                    </label>
+
+                    <input
+                        type="date"
+                        id="data"
+                        required
+                    >
+
+                    <label for="horario">
+                        Horário
+                    </label>
+
+                    <input
+                        type="time"
+                        id="horario"
+                        required
+                    >
+
+                    <label for="descricaoEvento">
+                        Descrição (opcional)
+                    </label>
+
+                    <textarea
+                        id="descricaoEvento"
+                        placeholder="Adicione detalhes sobre o compromisso..."
+                        rows="3"
+                    ></textarea>
+
+                    <button type="submit" class="botao-agendar">
+                        + Agendar compromisso
+                    </button>
+
+                </form>
+
+            </aside>
+
+        </section>
+
+
+        <!-- LISTA DE COMPROMISSOS -->
+        <section class="lista-agendamentos">
+
+            <div class="lista-topo">
+
+                <div>
+                    <h2>Meus compromissos</h2>
+                    <p>Confira suas próximas atividades agendadas.</p>
+                </div>
+
+                <span id="quantidadeEventos">0 compromissos</span>
+
+            </div>
+
+            <div id="listaEventos" class="eventos">
+
+                <div class="vazio">
+                    <span>🗓</span>
+                    <h3>Nenhum compromisso agendado</h3>
+                    <p>Seus próximos compromissos aparecerão aqui.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RODAPÉ -->
+        <footer>
+
+            <p>
+                © 2026 — Portal da Comunidade Escolar.
+                Todos os direitos reservados.
+            </p>
+
+            <p>
+                Desenvolvido pelo grupo <strong>6 Elementos.</strong>
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script>
+
+// ELEMENTOS
+const diasCalendario = document.getElementById("diasCalendario");
+const mesAno = document.getElementById("mesAno");
+const campoData = document.getElementById("data");
+const listaEventos = document.getElementById("listaEventos");
+const quantidadeEventos = document.getElementById("quantidadeEventos");
+
+const form = document.getElementById("formAgendamento");
+
+
+// DATA ATUAL
+let dataAtual = new Date();
+let dataSelecionada = formatarData(new Date());
+
+
+// SALVAR E CARREGAR AGENDAMENTOS
+let eventos = JSON.parse(
+    localStorage.getItem("agendamentosEscolares") || "[]"
+);
+
+
+// FORMATAR DATA
+function formatarData(data) {
+
+    const ano = data.getFullYear();
+    const mes = String(data.getMonth() + 1).padStart(2, "0");
+    const dia = String(data.getDate()).padStart(2, "0");
+
+    return `${ano}-${mes}-${dia}`;
+
+}
+
+
+// RENDERIZAR CALENDÁRIO
+function renderizarCalendario() {
+
+    const ano = dataAtual.getFullYear();
+    const mes = dataAtual.getMonth();
+
+    const primeiroDia = new Date(ano, mes, 1).getDay();
+    const ultimoDia = new Date(ano, mes + 1, 0).getDate();
+
+    const nomesMeses = [
+        "Janeiro", "Fevereiro", "Março",
+        "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro",
+        "Outubro", "Novembro", "Dezembro"
+    ];
+
+    mesAno.textContent = `${nomesMeses[mes]} de ${ano}`;
+
+    diasCalendario.innerHTML = "";
+
+    // ESPAÇOS ANTES DO PRIMEIRO DIA
+    for (let i = 0; i < primeiroDia; i++) {
+
+        const vazio = document.createElement("div");
+        vazio.className = "dia vazio-dia";
+
+        diasCalendario.appendChild(vazio);
+
+    }
+
+
+    // CRIAR OS DIAS
+    for (let dia = 1; dia <= ultimoDia; dia++) {
+
+        const elemento = document.createElement("button");
+
+        elemento.type = "button";
+        elemento.className = "dia";
+        elemento.textContent = dia;
+
+        const dataCompleta = formatarData(
+            new Date(ano, mes, dia)
+        );
+
+        // DIA ATUAL
+        if (dataCompleta === formatarData(new Date())) {
+            elemento.classList.add("hoje");
+        }
+
+        // DATA SELECIONADA
+        if (dataCompleta === dataSelecionada) {
+            elemento.classList.add("selecionado");
+        }
+
+        // DIA COM COMPROMISSO
+        if (eventos.some(evento => evento.data === dataCompleta)) {
+            elemento.classList.add("tem-evento");
+        }
+
+        elemento.addEventListener("click", function() {
+
+            dataSelecionada = dataCompleta;
+            campoData.value = dataCompleta;
+
+            renderizarCalendario();
+
+        });
+
+        diasCalendario.appendChild(elemento);
+
+    }
+
+}
+
+
+// NAVEGAÇÃO ENTRE MESES
+document.getElementById("mesAnterior").addEventListener("click", () => {
+
+    dataAtual.setMonth(dataAtual.getMonth() - 1);
+    renderizarCalendario();
+
+});
+
+
+document.getElementById("proximoMes").addEventListener("click", () => {
+
+    dataAtual.setMonth(dataAtual.getMonth() + 1);
+    renderizarCalendario();
+
+});
+
+
+// SELECIONAR DATA PELO CAMPO
+campoData.addEventListener("change", function() {
+
+    if (!campoData.value) return;
+
+    dataSelecionada = campoData.value;
+
+    const partes = dataSelecionada.split("-");
+
+    dataAtual = new Date(
+        Number(partes[0]),
+        Number(partes[1]) - 1,
+        Number(partes[2])
+    );
+
+    renderizarCalendario();
+
+});
+
+
+// CADASTRAR COMPROMISSO
+form.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const titulo = document.getElementById("titulo").value.trim();
+    const data = campoData.value;
+    const horario = document.getElementById("horario").value;
+    const descricao = document.getElementById("descricaoEvento").value.trim();
+
+    if (!titulo || !data || !horario) {
+        alert("Preencha todos os campos obrigatórios!");
+        return;
+    }
+
+    const novoEvento = {
+        id: Date.now(),
+        titulo: titulo,
+        data: data,
+        horario: horario,
+        descricao: descricao
+    };
+
+    eventos.push(novoEvento);
+
+    salvarEventos();
+
+    form.reset();
+
+    dataSelecionada = data;
+
+    const partes = data.split("-");
+
+    dataAtual = new Date(
+        Number(partes[0]),
+        Number(partes[1]) - 1,
+        Number(partes[2])
+    );
+
+    campoData.value = data;
+
+    renderizarCalendario();
+    renderizarEventos();
+
+    alert("Compromisso agendado com sucesso!");
+
+});
+
+
+// SALVAR NO NAVEGADOR
+function salvarEventos() {
+
+    localStorage.setItem(
+        "agendamentosEscolares",
+        JSON.stringify(eventos)
+    );
+
+}
+
+
+// MOSTRAR COMPROMISSOS
+function renderizarEventos() {
+
+    listaEventos.innerHTML = "";
+
+    quantidadeEventos.textContent =
+        `${eventos.length} compromisso${eventos.length !== 1 ? "s" : ""}`;
+
+    if (eventos.length === 0) {
+
+        listaEventos.innerHTML = `
+            <div class="vazio">
+                <span>🗓</span>
+                <h3>Nenhum compromisso agendado</h3>
+                <p>Seus próximos compromissos aparecerão aqui.</p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+    const eventosOrdenados = [...eventos].sort((a, b) => {
+
+        return (a.data + a.horario).localeCompare(
+            b.data + b.horario
+        );
+
+    });
+
+
+    eventosOrdenados.forEach(evento => {
+
+        const [ano, mes, dia] = evento.data.split("-");
+
+        const dataFormatada = `${dia}/${mes}/${ano}`;
+
+        const cartao = document.createElement("div");
+        cartao.className = "evento";
+
+        const informacoes = document.createElement("div");
+        informacoes.className = "evento-info";
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = evento.titulo;
+
+        const detalhes = document.createElement("p");
+        detalhes.textContent = `📅 ${dataFormatada}  •  🕒 ${evento.horario}`;
+
+        informacoes.append(titulo, detalhes);
+
+        if (evento.descricao) {
+
+            const descricao = document.createElement("p");
+            descricao.className = "evento-descricao";
+            descricao.textContent = evento.descricao;
+
+            informacoes.appendChild(descricao);
+
+        }
+
+        const excluir = document.createElement("button");
+        excluir.className = "excluir";
+        excluir.type = "button";
+        excluir.textContent = "Excluir";
+
+        excluir.addEventListener("click", function() {
+
+            if (confirm("Deseja excluir este compromisso?")) {
+
+                eventos = eventos.filter(item => item.id !== evento.id);
+
+                salvarEventos();
+                renderizarCalendario();
+                renderizarEventos();
+
+            }
+
+        });
+
+        cartao.append(informacoes, excluir);
+
+        listaEventos.appendChild(cartao);
+
+    });
+
+}
+
+
+// INICIALIZAÇÃO
+campoData.value = dataSelecionada;
+
+renderizarCalendario();
+renderizarEventos();
+
+</script>
+
+</body>
+</html>

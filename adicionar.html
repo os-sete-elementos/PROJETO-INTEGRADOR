@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Amigo | Portal da Comunidade Escolar</title>
+    <link rel="stylesheet" href="css/amizades.css">
+    <script src="JS/amizades-paginas.js" defer></script>
+</head>
+
+<body>
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="logo">
+            PORTAL DA
+            <span>COMUNIDADE ESCOLAR!</span>
+        </div>
+
+        <p class="menu-titulo">MENU</p>
+
+        <nav class="menu">
+            <a href="index2.html" class="menu-item">⌂ Início</a>
+            <a href="colegas.html" class="menu-item selecionado">♧ Amigos</a>
+            <a href="trabalhos.html" class="menu-item">▣ Trabalhos</a>
+            <a href="recursos.html" class="menu-item">▤ Recursos</a>
+        </nav>
+    </aside>
+
+    <main class="conteudo">
+        <header class="topo">
+            <div>
+                <h1>Adicionar amigo</h1>
+                <p>Encontre pessoas e faça novas amizades!</p>
+            </div>
+
+            <div class="perfil">
+                <div class="avatar" id="avatarUsuario">?</div>
+                <span id="nomeUsuario">Usuário</span>
+            </div>
+        </header>
+
+        <section class="cartao">
+            <h2>Encontrar pessoas</h2>
+            <p class="descricao">Digite o nome de usuário da pessoa que deseja encontrar.</p>
+
+            <div class="pesquisa">
+                <input
+                    type="text"
+                    id="campoUsuario"
+                    placeholder="Digite o nome de usuário..."
+                >
+                <button id="btnPesquisar">Pesquisar</button>
+            </div>
+
+            <div id="resultadoPesquisa" class="resultado">
+                <p class="mensagem">Pesquise um usuário para começar.</p>
+            </div>
+        </section>
+
+        <a href="colegas.html" class="voltar">← Voltar para meus amigos</a>
+    </main>
+</div>
+</body>
+</html>
